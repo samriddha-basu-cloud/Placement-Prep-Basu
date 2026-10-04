@@ -1,0 +1,1132 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#15161c">
+<title>Placement Prep Vault</title>
+<meta name="description" content="Read-only Obsidian-style study vault: SCM, Operations, Consulting, PM, Analytics.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2l11 8-3 17-8 3-8-3L5 10z' fill='%237c5cff'/%3E%3Cpath d='M16 2l11 8-11 6zM16 16l8 11-8 3z' fill='%23b8a6ff'/%3E%3C/svg%3E">
+<script>
+/* apply saved appearance before first paint (no theme flash) */
+(function(){try{var p=JSON.parse(localStorage.getItem('prefs')||'null')||{},o=JSON.parse(localStorage.getItem('theme')||'null'),t=p.theme||(o==='light'||o==='dark'?o:'auto'),r=document.documentElement;
+if(t==='auto')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+r.dataset.theme=t;r.dataset.size=p.size==null?1:p.size;r.dataset.font=p.font||'sans';r.dataset.width=p.width==null?1:p.width;}catch(e){}})();
+</script>
+<style>
+:root{
+  --bg:#15161c;--bg2:#1b1c25;--bg3:#272938;--bd:#2f3243;--tx:#e9e8f1;--tx2:#b4b2c7;--tx3:#8985a3;
+  --ac:#aa9cff;--ac2:#7c6cff;--acbg:rgba(150,128,255,.15);--ok:#4ade80;--warn:#fbbf24;
+  --code:#101117;--shadow:0 14px 36px rgba(0,0,0,.5);
+  --c-news:#f5b13d;--c-question:#6aa9ff;--c-tip:#3fd8a4;--c-note:#aa9cff;
+  --sans:"Inter","Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Source Serif 4",Charter,"Bitstream Charter",Georgia,Cambria,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,"Cascadia Code",Menlo,Consolas,"Liberation Mono",monospace;
+  --sbw:304px;--rpw:300px;--topH:52px;
+  --base:17px;--scale:1;--measure:68ch;--gut:44px;
+  color-scheme:dark;
+}
+html[data-theme=light]{
+  --bg:#fdfcf9;--bg2:#f6f4ee;--bg3:#ebe8df;--bd:#e0dcd0;--tx:#24222c;--tx2:#4f4c66;--tx3:#66637a;
+  --ac:#5a3de0;--ac2:#4a30cf;--acbg:rgba(90,61,224,.09);--ok:#17803f;--warn:#b45309;
+  --code:#f3f1ea;--shadow:0 14px 36px rgba(40,34,70,.18);
+  --c-news:#8f4b03;--c-question:#1f5fd6;--c-tip:#056b4c;--c-note:#5a3de0;
+  color-scheme:light;
+}
+html[data-size="0"]{--scale:.9}html[data-size="2"]{--scale:1.12}html[data-size="3"]{--scale:1.26}
+html[data-width="0"]{--measure:58ch}html[data-width="2"]{--measure:84ch}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--tx);font:15px/1.55 var(--sans);overflow:hidden;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:var(--ac);text-decoration:none}
+:focus-visible{outline:2px solid var(--ac2);outline-offset:2px;border-radius:6px}
+::selection{background:var(--acbg)}
+::-webkit-scrollbar{width:11px;height:11px}::-webkit-scrollbar-thumb{background:var(--bd);border-radius:8px;border:3px solid transparent;background-clip:content-box}::-webkit-scrollbar-thumb:hover{background:var(--tx3);background-clip:content-box;border:3px solid transparent}
+*{scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
+svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+#app{display:grid;grid-template-columns:var(--sbw) minmax(0,1fr) var(--rpw);height:100vh;height:100dvh}
+#app.no-left{grid-template-columns:0 minmax(0,1fr) var(--rpw)}
+#app.no-right{grid-template-columns:var(--sbw) minmax(0,1fr) 0}
+#app.no-left.no-right{grid-template-columns:0 minmax(0,1fr) 0}
+.pane{min-width:0;overflow:hidden;background:var(--bg2);display:flex;flex-direction:column}
+#left{border-right:1px solid var(--bd)}#right{border-left:1px solid var(--bd)}
+.no-left #left,.no-right #right{display:none}
+#left{grid-column:1;grid-row:1}#main{grid-column:2;grid-row:1}#right{grid-column:3;grid-row:1}
+
+/* ---------- sidebar ---------- */
+.brand{display:flex;align-items:center;gap:11px;padding:16px 16px 8px;font:650 15px/1.2 var(--sans);letter-spacing:.1px}
+.brand svg{flex:none}
+.brand small{display:block;font-weight:450;color:var(--tx3);font-size:12px;letter-spacing:0;margin-top:3px}
+.progress-card{margin:8px 14px 10px;padding:10px 12px;background:var(--bg3);border-radius:10px;font-size:12.5px;color:var(--tx2)}
+.bar{height:5px;background:var(--bd);border-radius:4px;overflow:hidden;margin-top:7px}.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--ac2),var(--ok));width:0;transition:width .3s}
+.tabs{display:flex;gap:4px;padding:0 10px;border-bottom:1px solid var(--bd)}
+.tabs button{flex:1;background:none;border:0;border-bottom:2px solid transparent;border-radius:0;padding:9px 4px 8px;color:var(--tx2);font-size:13.5px;font-weight:550;margin-bottom:-1px}
+.tabs button:hover{color:var(--tx)}.tabs button.on{border-bottom-color:var(--ac2);color:var(--ac)}
+.scroll{overflow:auto;flex:1;min-height:0;overscroll-behavior:contain}
+#tree{padding:8px 8px 28px;font-size:13.5px;user-select:none}
+.folder>.fh{display:flex;align-items:center;gap:7px;padding:6px 8px;border-radius:8px;cursor:pointer;color:var(--tx);font-weight:600;font-size:13px;line-height:1.35}
+.fh:hover,.file:hover{background:var(--bg3)}
+.fh .chev{width:12px;color:var(--tx3);transition:transform .15s;flex:none;font-size:9px}
+.folder.open>.fh .chev{transform:rotate(90deg)}
+.fh .dot{width:9px;height:9px;border-radius:50%;flex:none}
+.fh .cnt{margin-left:auto;font-size:11px;color:var(--tx3);font-weight:450;font-variant-numeric:tabular-nums}
+.folder>.kids{display:none;margin:2px 0 6px 15px;border-left:1px solid var(--bd);padding-left:4px}
+.folder.open>.kids{display:block}
+.file{display:flex;align-items:center;gap:6px;padding:5px 9px;border-radius:7px;cursor:pointer;color:var(--tx2);white-space:nowrap;overflow:hidden;line-height:1.4}
+.file span.t{overflow:hidden;text-overflow:ellipsis;flex:1}
+.file.on{background:var(--acbg);color:var(--ac);font-weight:550}
+.file .ck{font-size:11px;color:var(--ok);flex:none}
+.file.idx{font-style:italic;color:var(--tx3)}
+.rootfiles{padding-bottom:6px;border-bottom:1px solid var(--bd);margin-bottom:6px}
+#search{padding:12px}
+#q{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font:inherit;font-size:15px;outline:none}
+#q:focus{border-color:var(--ac2);box-shadow:0 0 0 3px var(--acbg)}
+.res{padding:10px 12px;border-radius:10px;cursor:pointer;margin-top:4px}
+.res:hover{background:var(--bg3)}
+.res b{display:block;font-size:13.5px;color:var(--tx);line-height:1.35}.res small{color:var(--tx3);font-size:11.5px}
+.res p{margin:4px 0 0;font-size:12.5px;color:var(--tx2);line-height:1.5}
+mark{background:rgba(251,191,36,.32);color:inherit;border-radius:3px;padding:0 1px}
+.tagrow{display:flex;flex-wrap:wrap;gap:7px;padding:12px}
+.tag{display:inline-block;padding:2px 10px;border-radius:99px;background:var(--acbg);color:var(--ac);font-size:12px;border:0;cursor:pointer;line-height:1.6}
+.tag small{opacity:.7;margin-left:3px}
+
+/* ---------- main + top bar ---------- */
+#main{background:var(--bg);position:relative}
+#top{position:relative;display:flex;align-items:center;gap:2px;padding:0 10px;padding-top:env(safe-area-inset-top,0px);min-height:calc(var(--topH) + env(safe-area-inset-top,0px));border-bottom:1px solid var(--bd);background:var(--bg)}
+#top .crumb{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--tx3);font-size:13px;padding:0 8px}
+#top .crumb b{color:var(--tx);font-weight:600}
+.ib{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:38px;height:38px;background:none;border:1px solid transparent;border-radius:10px;padding:0 10px;color:var(--tx2);font-size:13px;white-space:nowrap;flex:none}
+.ib:hover{background:var(--bg3);color:var(--tx)}.ib.on{background:var(--acbg);color:var(--ac)}
+.ib:disabled{opacity:.35;cursor:default;background:none}
+.ib.studied{color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
+#progress{height:3px;background:transparent;flex:none}#progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ac2),var(--ac));border-radius:0 3px 3px 0}
+#content{flex:1;overflow:auto;position:relative;overscroll-behavior:contain;scroll-behavior:auto}
+#note{--fs:calc(var(--base)*var(--scale));font-size:var(--fs);line-height:1.72;max-width:calc(var(--measure) + var(--gut)*2);margin:0 auto;padding:52px var(--gut) 140px}
+html[data-font=serif] #note{font-family:var(--serif)}
+.md{overflow-wrap:break-word}.md h1,.md h2,.md h3{overflow-wrap:anywhere}
+#graphview{position:absolute;inset:0;display:none}
+.showgraph #graphview{display:block}.showgraph #note{display:none}
+#totop{position:absolute;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:5;width:42px;height:42px;border-radius:50%;border:1px solid var(--bd);background:var(--bg2);color:var(--tx2);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .2s,transform .2s}
+#totop.show{opacity:1;pointer-events:auto;transform:none}.showgraph #totop{display:none}
+.sheet{position:absolute;top:calc(100% + 6px);right:10px;z-index:45;width:min(348px,calc(100vw - 20px));background:var(--bg2);border:1px solid var(--bd);border-radius:16px;box-shadow:var(--shadow);padding:6px 16px 14px}
+.sheet[hidden]{display:none}
+.sheet .row{display:flex;flex-direction:column;gap:8px;padding:13px 0 0;margin-top:13px;border-top:1px solid var(--bd)}.sheet .row:first-child{border-top:0;margin-top:0;padding-top:8px}
+.sheet .lab{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx3);font-weight:600}
+.seg{display:flex;background:var(--bg3);border-radius:10px;padding:3px;gap:2px}
+.seg button{flex:1;background:none;border:0;border-radius:8px;padding:7px 4px;color:var(--tx2);font-size:13px;font-weight:550;line-height:1.2}
+.seg button.on{background:var(--bg);color:var(--ac);box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.seg.sizes button{font-family:var(--serif)}.seg.sizes button:nth-child(1){font-size:12px}.seg.sizes button:nth-child(2){font-size:15px}.seg.sizes button:nth-child(3){font-size:18px}.seg.sizes button:nth-child(4){font-size:21px}
+.seg.fonts button[data-v=serif]{font-family:var(--serif);font-size:15px}
+
+/* ---------- note header ---------- */
+.eyebrow{display:flex;align-items:center;gap:9px;font:600 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--tx3);margin:0 0 14px}
+.eyebrow i{width:9px;height:9px;border-radius:50%;flex:none}
+.nmeta{display:flex;flex-wrap:wrap;gap:2px 14px;margin:0 0 6px;font:500 13px/1.5 var(--sans);color:var(--tx3)}
+.nmeta span:not(:last-child)::after{content:"·";margin-left:14px;opacity:.7}
+.ntags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.navline{font:450 13px/1.6 var(--sans)!important;color:var(--tx3);margin:1.1em 0!important;padding:.7em 0;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.navline a{color:var(--tx2)}.navline a:hover{color:var(--ac)}
+.md blockquote.metaq{display:none}
+
+/* ---------- markdown ---------- */
+.md h1{font:650 2.35em/1.14 var(--serif);letter-spacing:-.022em;margin:.1em 0 .35em;text-wrap:balance}
+.md h2{font:650 1.55em/1.25 var(--serif);letter-spacing:-.012em;margin:2.5em 0 .5em;text-wrap:balance;scroll-margin-top:16px}
+.md h2[data-num]::before{content:attr(data-num);display:inline-block;margin-right:.6em;padding:.22em .62em;border-radius:7px;background:var(--acbg);color:var(--ac);font:650 .5em/1.3 var(--sans);letter-spacing:.04em;vertical-align:.32em;font-variant-numeric:tabular-nums}
+.md h3{font:650 .72em/1.3 var(--sans);text-transform:uppercase;letter-spacing:.11em;color:var(--tx3);margin:2em 0 .6em;scroll-margin-top:16px}
+.md h3::before{content:"";display:inline-block;width:.72em;height:.72em;border-radius:50%;background:var(--tx3);margin-right:.65em;vertical-align:-.04em}
+.md h3[data-k=definition]::before{background:var(--ac2)}.md h3[data-k=example]::before{background:var(--c-tip)}.md h3[data-k=in]::before{background:var(--c-news)}.md h3[data-k=interview]::before{background:var(--c-question)}
+.md h4,.md h5,.md h6{font:650 1em/1.4 var(--sans);margin:1.4em 0 .3em}
+.md h2+blockquote{margin:.1em 0 1.1em;padding:.55em .95em;border:0;border-radius:10px;background:var(--bg2);color:var(--tx2);font:450 .86em/1.55 var(--sans)}
+.md h2+blockquote p{margin:0}
+.md p{margin:.85em 0}
+.md ul,.md ol{padding-left:1.4em;margin:.7em 0}.md li{margin:.32em 0;padding-left:.15em}.md li p{margin:.35em 0}
+.md li::marker{color:var(--tx3)}
+.md li>ul,.md li>ol{margin:.2em 0}
+.md hr{border:0;border-top:1px solid var(--bd);margin:2.2em 0}
+.md strong{color:var(--tx);font-weight:620}
+.md code{background:var(--code);border:1px solid var(--bd);padding:.08em .38em;border-radius:6px;font:.84em var(--mono);color:var(--ac);word-break:break-word}
+.md pre{position:relative;background:var(--code);border:1px solid var(--bd);border-radius:12px;padding:16px 18px;overflow:auto;margin:1.1em 0;-webkit-overflow-scrolling:touch}
+.md pre code{background:none;border:0;padding:0;color:var(--tx);font-size:.82em;line-height:1.65;display:block;white-space:pre;word-break:normal}
+.md pre .lang{position:absolute;top:8px;right:62px;font:600 10.5px var(--sans);letter-spacing:.08em;color:var(--tx3);text-transform:uppercase}
+.md pre .copy{position:absolute;top:6px;right:8px;font:550 11.5px var(--sans);background:var(--bg2);border:1px solid var(--bd);border-radius:7px;padding:2px 9px;color:var(--tx2);opacity:0;transition:.15s}
+.md pre:hover .copy,.md pre .copy:focus-visible{opacity:1}
+.tk-k{color:#c084fc}.tk-s{color:#4ade80}.tk-c{color:var(--tx3);font-style:italic}.tk-n{color:#fb923c}.tk-f{color:#60a5fa}.tk-r{color:#f472b6}
+html[data-theme=light] .tk-k{color:#7e22ce}html[data-theme=light] .tk-s{color:#15803d}html[data-theme=light] .tk-n{color:#c2410c}html[data-theme=light] .tk-f{color:#1d4ed8}html[data-theme=light] .tk-r{color:#be185d}
+.tablewrap{overflow:auto;margin:1.2em 0;border:1px solid var(--bd);border-radius:12px;-webkit-overflow-scrolling:touch;
+  background:linear-gradient(to right,var(--bg) 30%,transparent) left center/36px 100% no-repeat local,linear-gradient(to left,var(--bg) 30%,transparent) right center/36px 100% no-repeat local,radial-gradient(farthest-side at 0 50%,rgba(0,0,0,.28),transparent) left center/10px 100% no-repeat scroll,radial-gradient(farthest-side at 100% 50%,rgba(0,0,0,.28),transparent) right center/10px 100% no-repeat scroll}
+.md table{border-collapse:collapse;width:100%;font:.88em/1.5 var(--sans)}
+.md th,.md td{padding:9px 14px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top}
+.md th{font-weight:650;font-size:.82em;letter-spacing:.03em;color:var(--tx2);white-space:nowrap;border-bottom:1.5px solid var(--bd)}
+.md tbody tr:nth-child(even){background:color-mix(in srgb,var(--bg2) 55%,transparent)}
+.md tr:last-child td{border-bottom:0}
+.md td{min-width:80px}
+.md blockquote{margin:1em 0;padding:.1em 1.1em;border-left:3px solid var(--ac2);color:var(--tx2)}
+.callout{--cc:var(--c-note);margin:1.2em 0;border-radius:14px;padding:3px 18px 10px;background:color-mix(in srgb,var(--cc) 9%,var(--bg));border:1px solid color-mix(in srgb,var(--cc) 30%,transparent);border-left:4px solid var(--cc)}
+.callout .ct{display:flex;gap:10px;align-items:flex-start;font:650 .92em/1.45 var(--sans);color:var(--cc);padding:10px 0 0}
+.callout .ct svg{width:18px;height:18px;margin-top:.1em}
+.callout .cb{font-size:.96em}
+.callout .cb p:first-child{margin-top:.5em}.callout .cb ul,.callout .cb ol{margin:.4em 0}.callout .cb p:last-child{margin-bottom:.2em}
+.callout.news{--cc:var(--c-news)}.callout.question{--cc:var(--c-question)}.callout.tip{--cc:var(--c-tip)}.callout.note,.callout.info{--cc:var(--c-note)}
+a.wikilink{color:var(--ac);text-decoration:underline;text-decoration-style:dotted;text-decoration-color:color-mix(in srgb,var(--ac) 55%,transparent);text-underline-offset:3px}a.wikilink:hover{text-decoration-style:solid}
+.md a:not(.wikilink){text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--ac) 45%,transparent);text-underline-offset:3px}
+.unresolved{color:var(--tx3);cursor:help;opacity:.8}
+a.ext::after{content:"\2197";font-size:.8em;margin-left:2px}
+.md input[type=checkbox]{margin-right:6px;accent-color:var(--ac2)}
+.md li.task{list-style:none;margin-left:-1.3em}
+.mathd{margin:1em 0;padding:.7em 1em;text-align:center;overflow-x:auto;font-size:1.1em;background:var(--bg2);border-radius:12px}
+.mathi{white-space:nowrap}
+.mathi.wide{display:block;overflow-x:auto;max-width:100%;margin:.55em 0;padding:.5em .85em;background:var(--bg2);border-radius:10px;-webkit-overflow-scrolling:touch}
+.mathd,.mathi{font-family:"Cambria Math","STIX Two Math","Latin Modern Math","Times New Roman",Georgia,serif}
+.mathd i,.mathi i{font-style:italic}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .12em}
+.frac>.n{border-bottom:1.5px solid currentColor;padding:0 .2em .05em}.frac>.d{padding:.05em .2em 0}
+.sqrt{display:inline-flex;align-items:stretch}.sqrt>.rad{align-self:flex-end;margin-right:-1px}.sqrt>.rb{border-top:1.5px solid currentColor;padding:0 .15em}
+.scr{display:inline-flex;flex-direction:column;vertical-align:middle;font-size:.72em;line-height:1.15;margin-left:1px}
+.lim{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.1}.lim>.lt,.lim>.lb{font-size:.7em}
+.ovl{display:inline-block;border-top:1.3px solid currentColor;line-height:1.05}
+.ubr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle}.ubr>.bd{border:solid currentColor;border-width:0 1.3px 1.3px;height:.4em;width:100%;border-radius:0 0 6px 6px}.ubr>.lb{font-size:.7em}
+.tx{font-family:var(--sans);font-style:normal;font-size:.9em}
+.fn{font-style:normal}
+.hlchip{display:inline-flex;gap:6px;align-items:center;background:rgba(251,191,36,.18);border-radius:99px;padding:3px 12px;font:500 12px var(--sans);margin-bottom:14px}
+.hlchip button{background:none;border:0;padding:0}
+.subtoc{margin:1.6em 0 2.2em;padding:18px 22px 14px;background:var(--bg2);border:1px solid var(--bd);border-radius:14px;font-family:var(--sans)}
+.subtoc summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;font:650 11.5px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--tx3);padding:2px 0 6px}
+.subtoc summary::-webkit-details-marker{display:none}
+.subtoc summary::after{content:"";margin-left:auto;width:7px;height:7px;border:solid currentColor;border-width:0 1.8px 1.8px 0;transform:rotate(45deg) translate(-2px,-2px);transition:transform .15s}
+.subtoc[open] summary::after{transform:rotate(-135deg) translate(-2px,-2px)}
+.subtoc summary .cnt{font-weight:600;letter-spacing:0;background:var(--bg3);color:var(--tx2);border-radius:99px;padding:1px 8px}
+.subtoc:not([open]){padding-bottom:12px}.subtoc:not([open]) summary{padding-bottom:0}
+.subtoc[open] summary{margin-bottom:.5em}
+.md .subtoc ol{margin:0;padding-left:1.7em;columns:2 300px;column-gap:36px;font-size:.88em;line-height:1.5}
+.md .subtoc li{break-inside:avoid;margin:.32em 0;padding-left:.2em}
+.md .subtoc li::marker{color:var(--tx3);font-variant-numeric:tabular-nums}
+.md .subtoc a{color:var(--tx);text-decoration:none}.md .subtoc a:hover{color:var(--ac)}
+.navrow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4em;font-family:var(--sans)}
+.navrow a{display:flex;flex-direction:column;gap:3px;padding:14px 18px;border:1px solid var(--bd);border-radius:14px;background:var(--bg2);font:600 14px/1.4 var(--sans);color:var(--tx);min-width:0}
+.navrow a:hover{border-color:var(--ac2);background:var(--acbg)}
+.navrow small{color:var(--tx3);font-weight:500;font-size:12px}.navrow a:last-child{text-align:right}
+/* Home: long link lists flow into columns */
+#note.home ul{columns:2 270px;column-gap:34px;list-style:none;padding-left:0}
+#note.home li{break-inside:avoid;margin:.18em 0;font-size:.93em;line-height:1.45;padding:.12em 0}
+#note.home h3{text-transform:none;letter-spacing:0;font:650 1.12em/1.35 var(--serif);color:var(--tx);margin:2em 0 .5em;padding-top:1em;border-top:1px solid var(--bd)}
+#note.home h3::before{display:none}
+
+/* ---------- right panel ---------- */
+.rp{padding:16px 16px 14px;border-bottom:1px solid var(--bd)}
+.rp h4{margin:0 0 10px;font:650 11px/1.3 var(--sans);text-transform:uppercase;letter-spacing:.12em;color:var(--tx3);display:flex;justify-content:space-between;align-items:center}
+#toc a{display:block;padding:5px 10px;border-left:2px solid var(--bd);color:var(--tx2);font-size:13px;line-height:1.4}
+#toc a:hover{color:var(--tx)}#toc a.on{border-left-color:var(--ac2);color:var(--ac);background:var(--acbg);border-radius:0 8px 8px 0}
+.bl{padding:8px 10px;border-radius:9px;margin-bottom:3px;cursor:pointer;font-size:13px;line-height:1.4}.bl:hover{background:var(--bg3)}
+.bl small{display:block;color:var(--tx3);font-size:12px;line-height:1.4;margin-top:2px}
+#localgraph{height:230px;position:relative;border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--bg)}
+canvas{display:block;width:100%;height:100%;touch-action:none}
+.gui{position:absolute;top:12px;left:12px;display:flex;flex-direction:column;gap:8px;z-index:2;max-width:268px}
+.gpanel{background:color-mix(in srgb,var(--bg2) 94%,transparent);border:1px solid var(--bd);border-radius:14px;padding:12px 14px;font-size:12.5px;box-shadow:var(--shadow);backdrop-filter:blur(8px)}
+.gpanel input[type=text]{width:100%;padding:8px 10px;border:1px solid var(--bd);border-radius:9px;background:var(--bg);color:var(--tx);outline:none;font:inherit;font-size:14px}
+.gpanel label{display:flex;align-items:center;gap:7px;margin-top:8px;color:var(--tx2)}
+.gpanel input[type=range]{flex:1;accent-color:var(--ac2)}
+.gpanel input[type=checkbox]{accent-color:var(--ac2)}
+.gtoggle{display:none;align-self:flex-start}
+.legend{display:flex;flex-direction:column;gap:0;max-height:34vh;overflow:auto}
+.legend div{display:flex;gap:8px;align-items:center;padding:4px 5px;border-radius:6px;cursor:pointer;font-size:12px;color:var(--tx2)}
+.legend div:hover{background:var(--bg3)}.legend div.off{opacity:.35}.legend i{width:10px;height:10px;border-radius:50%;flex:none}
+.gtitle{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);padding:6px 14px;background:var(--bg2);border:1px solid var(--bd);border-radius:99px;font-size:12px;color:var(--tx2);pointer-events:none;z-index:2;white-space:nowrap;max-width:calc(100% - 24px);overflow:hidden;text-overflow:ellipsis}
+
+/* hover preview */
+#pop{position:fixed;z-index:60;width:440px;max-width:92vw;max-height:310px;overflow:hidden;background:var(--bg2);border:1px solid var(--bd);border-radius:14px;box-shadow:var(--shadow);padding:14px 18px;display:none;font-size:13.5px;line-height:1.6}
+#pop::after{content:"";position:absolute;left:0;right:0;bottom:0;height:50px;background:linear-gradient(transparent,var(--bg2))}
+#pop .md h1{font-size:1.25em}#pop .md h2{font-size:1.1em;margin-top:.7em}#pop .md h2::before{display:none}#pop .md h3{font-size:.7em}
+#pop .ph{font-size:11px;color:var(--tx3);margin-bottom:4px}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--bg3);border:1px solid var(--bd);padding:8px 16px;border-radius:99px;font-size:13px;opacity:0;transition:.25s;pointer-events:none;z-index:70}
+#toast.show{opacity:1}
+#scrim{display:none}
+.drawer-x{display:none;min-width:34px;height:34px;padding:0;margin-left:auto}
+#left .brand .drawer-x{align-self:flex-start}
+
+/* ---------- responsive ---------- */
+/* <1280: right panel becomes a drawer; <900: sidebar becomes a drawer, single column */
+@media (min-width:1280px){
+  .showgraph #app,.showgraph #app.no-right{grid-template-columns:var(--sbw) minmax(0,1fr) 0}.showgraph #app.no-left,.showgraph #app.no-left.no-right{grid-template-columns:0 minmax(0,1fr) 0}.showgraph #right{display:none}
+}
+@media (max-width:1279px){
+  #right .drawer-x{display:inline-flex}
+  #app,#app.no-left,#app.no-right,#app.no-left.no-right{grid-template-columns:var(--sbw) minmax(0,1fr) 0}
+  #app.no-left,#app.no-left.no-right{grid-template-columns:0 minmax(0,1fr) 0}
+  #right{position:fixed;z-index:40;top:0;bottom:0;right:0;width:min(88vw,340px);transform:translateX(102%);transition:transform .22s ease;box-shadow:var(--shadow);display:flex!important}
+  .showright #right{transform:none}
+  .showleft #scrim,.showright #scrim{display:block;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:35}
+  #note{--gut:36px}
+}
+@media (max-width:1100px){.ib .lbl{display:none}}
+@media (max-width:899px){
+  :root{--base:16px}
+  #left .drawer-x{display:inline-flex}
+  #app,#app.no-left,#app.no-right,#app.no-left.no-right{display:block}
+  #main{height:100vh;height:100dvh}
+  #left{position:fixed;z-index:40;top:0;bottom:0;left:0;width:min(88vw,340px);transform:translateX(-102%);transition:transform .22s ease;box-shadow:var(--shadow);display:flex!important;padding-top:env(safe-area-inset-top,0px)}
+  .showleft #left{transform:none}
+  .wide-only{display:none!important}
+  #note{--gut:20px;padding-top:30px;padding-bottom:120px}
+  .md h1{font-size:2em}
+  .md h2{font-size:1.4em;margin-top:2.1em}
+  .md td{min-width:160px}.md td:first-child{min-width:100px}
+  .md .subtoc ol{columns:1}
+  #right{padding-top:env(safe-area-inset-top,0px)}
+  .gtoggle{display:inline-flex}.gui.collapsed .gpanel{display:none}.gui{max-width:min(268px,calc(100vw - 24px))}
+  .navrow{grid-template-columns:1fr}.navrow a:last-child{text-align:left}
+  .file,.folder>.fh{padding-top:9px;padding-bottom:9px}
+  #totop{right:14px}
+}
+@media (max-width:420px){
+  #top{padding-left:4px;padding-right:4px}
+  .ib{min-width:36px;padding:0 8px}
+  .md th,.md td{padding:8px 11px}
+  .callout{padding-left:14px;padding-right:14px}
+}
+@media (hover:none){#pop{display:none!important}.md pre .copy{opacity:1}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  html,body{height:auto;overflow:visible;background:#fff;color:#000}
+  #left,#right,#top,#progress,#scrim,#toast,#totop,#pop,.navrow,.sheet{display:none!important}
+  #app{display:block;height:auto}#main,#content{overflow:visible;height:auto;display:block}
+  #note{max-width:none;padding:0;font-size:11pt;color:#000}
+  .md a{color:#000;text-decoration:none}.callout{break-inside:avoid}.md pre,.tablewrap{overflow:visible;break-inside:avoid}
+}
+@media (max-width:899px){#top .crumb .pre{display:none}}
+@media print{:root,html[data-theme]{--bg:#fff;--bg2:#f4f4f4;--bg3:#eee;--bd:#ccc;--tx:#111;--tx2:#333;--tx3:#555;--ac:#3a2bb0;--code:#f4f4f4;--c-news:#8a4b00;--c-question:#1d4ed8;--c-tip:#047857;--c-note:#3a2bb0}}
+</style>
+</head>
+<body>
+<div id="app">
+  <aside id="left" class="pane" aria-label="Notes">
+    <div class="brand">
+      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2l11 8-3 17-8 3-8-3L5 10z" fill="#7c5cff"/><path d="M16 2l11 8-11 6zM16 16l8 11-8 3z" fill="#b8a6ff"/></svg>
+      <div>Placement Prep Vault<small>Samriddha Basu · MBA Ops &amp; SCM</small></div>
+      <button class="ib drawer-x" data-close aria-label="Close panel"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="progress-card"><span id="progtxt">0 / 0 studied</span><div class="bar"><i id="progbar"></i></div></div>
+    <div class="tabs" role="tablist">
+      <button data-tab="files" class="on">Files</button><button data-tab="search">Search</button><button data-tab="tags">Tags</button>
+    </div>
+    <div class="scroll" id="tab-files"><div id="tree"></div></div>
+    <div class="scroll" id="tab-search" style="display:none"><div id="search">
+      <input id="q" type="search" placeholder="Search all notes…" autocomplete="off" enterkeyhint="search">
+      <div id="results"></div></div></div>
+    <div class="scroll" id="tab-tags" style="display:none"><div class="tagrow" id="taglist"></div></div>
+  </aside>
+  <div id="scrim"></div>
+  <main id="main" class="pane">
+    <div id="top">
+      <button class="ib" id="b-left" title="Notes (sidebar)" aria-label="Toggle notes sidebar"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/></svg></button>
+      <div class="crumb" id="crumb"></div>
+      <button class="ib wide-only" id="b-prev" title="Previous note (Alt+←)" aria-label="Previous note"><svg class="i" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"/></svg></button>
+      <button class="ib wide-only" id="b-next" title="Next note (Alt+→)" aria-label="Next note"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+      <button class="ib" id="b-studied" title="Mark as studied"></button>
+      <button class="ib" id="b-search" title="Search (Ctrl/⌘ K)" aria-label="Search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button class="ib" id="b-aa" title="Reading settings" aria-label="Reading settings" aria-expanded="false"><svg class="i" viewBox="0 0 24 24"><path d="M3 19 8.5 5 14 19M5.2 14.5h6.6"/><path d="m15.5 19 3-8 3 8M16.6 16.5h3.8"/></svg></button>
+      <button class="ib" id="b-graph" title="Graph view (G)" aria-label="Graph view"><svg class="i" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="m8.2 10.8 7.6-3.6M8.2 13.2l7.6 3.6"/></svg></button>
+      <button class="ib" id="b-right" title="Outline, graph and links" aria-label="Outline and links"><svg class="i" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg></button>
+      <div class="sheet" id="aa" hidden role="dialog" aria-label="Reading settings">
+        <div class="row"><span class="lab">Theme</span><div class="seg" data-k="theme"><button data-v="light">Light</button><button data-v="dark">Dark</button><button data-v="auto">Auto</button></div></div>
+        <div class="row"><span class="lab">Text size</span><div class="seg sizes" data-k="size"><button data-v="0" aria-label="Small">A</button><button data-v="1" aria-label="Medium">A</button><button data-v="2" aria-label="Large">A</button><button data-v="3" aria-label="Extra large">A</button></div></div>
+        <div class="row"><span class="lab">Typeface</span><div class="seg fonts" data-k="font"><button data-v="sans">Sans</button><button data-v="serif">Serif</button></div></div>
+        <div class="row wide-only"><span class="lab">Line width</span><div class="seg" data-k="width"><button data-v="0">Narrow</button><button data-v="1">Standard</button><button data-v="2">Wide</button></div></div>
+      </div>
+    </div>
+    <div id="progress"><i></i></div>
+    <div id="content">
+      <article id="note" class="md"></article>
+      <section id="graphview"></section>
+    </div>
+    <button id="totop" title="Back to top" aria-label="Back to top"><svg class="i" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></button>
+  </main>
+  <aside id="right" class="pane" aria-label="Outline and links"><div class="scroll">
+    <div class="rp"><h4>On this page <button class="ib drawer-x" data-close aria-label="Close panel"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></h4><div id="toc"></div></div>
+    <div class="rp"><h4>Local graph <button class="ib" id="b-expand" style="min-width:0;height:auto;padding:2px 8px;font-size:11px">expand</button></h4><div id="localgraph"></div></div>
+    <div class="rp"><h4>Backlinks <span id="blcount"></span></h4><div id="backlinks"></div></div>
+    <div class="rp"><h4>Outgoing links <span id="olcount"></span></h4><div id="outlinks"></div></div>
+  </div></aside>
+</div>
+<div id="pop"></div><div id="toast"></div>
+<script id="notes-data" type="application/json">__NOTES_JSON__</script>
+<script>
+"use strict";
+/* ============================================================
+   Data
+   ============================================================ */
+const RAW = JSON.parse(document.getElementById('notes-data').textContent);
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const norm = s => s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+
+const NARROW_L = matchMedia('(max-width:899px)'), NARROW_R = matchMedia('(max-width:1279px)');
+const COARSE = matchMedia('(pointer:coarse)').matches, REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const IC = p => `<svg class="i" viewBox="0 0 24 24">${p}</svg>`;
+const CALLOUT_ICON = {
+  news: IC('<path d="M4 5h13a1 1 0 0 1 1 1v13H5a1 1 0 0 1-1-1z"/><path d="M18 9h2v9a1.5 1.5 0 0 1-3 0M7.5 9h7M7.5 12.5h7M7.5 16h4"/>'),
+  question: IC('<circle cx="12" cy="12" r="9"/><path d="M9.6 9.6a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1.1 1-1.1 1.8M12 17h.01"/>'),
+  tip: IC('<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>'),
+  note: IC('<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>'),
+  warning: IC('<path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/>'),
+  example: IC('<path d="M9 3h6M10 3v6L5 19a1.5 1.5 0 0 0 1.3 2h11.4A1.5 1.5 0 0 0 19 19l-5-10V3"/>')
+};
+const HINT = COARSE ? 'Pinch to zoom · drag to pan · tap a note to open · green ring = studied' : 'Scroll to zoom · drag to pan · drag a node · click to open · green ring = studied';
+const PALETTE = ['#f87171', '#fb923c', '#fbbf24', '#a3e635', '#4ade80', '#2dd4bf', '#22d3ee', '#60a5fa', '#818cf8', '#a78bfa', '#e879f9', '#f472b6', '#fb7185', '#34d399', '#38bdf8'];
+const folders = [...new Set(RAW.map(n => n.folder).filter(Boolean))].sort();
+const folderLabel = f => f ? f.replace(/^\d+\s+/, '') : 'Vault root';
+const folderColor = f => f ? PALETTE[folders.indexOf(f) % PALETTE.length] : '#9ca3af';
+
+function parseFront(md) {
+  const m = md.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
+  const fm = {}; let body = md;
+  if (m) {
+    body = md.slice(m[0].length);
+    m[1].split(/\r?\n/).forEach(l => {
+      const k = l.match(/^([\w-]+):\s*(.*)$/); if (!k) return;
+      let v = k[2].trim();
+      if (/^\[.*\]$/.test(v)) v = v.slice(1, -1).split(',').map(x => x.trim()).filter(Boolean);
+      else v = v.replace(/^["']|["']$/g, '');
+      fm[k[1]] = v;
+    });
+  }
+  return { fm, body };
+}
+
+const GRAPHS = new Set();
+const NOTES = {}; const ORDER = [];
+RAW.forEach(r => {
+  const { fm, body } = parseFront(r.md);
+  const title = r.id.replace(/^_Index - /, '');
+  const n = { id: r.id, folder: r.folder, fm, body, title, isIndex: r.id.startsWith('_Index'), color: folderColor(r.folder),
+    tags: [].concat(fm.tags || []), low: body.toLowerCase(), out: new Set(), in: new Set() };
+  NOTES[r.id] = n; ORDER.push(n.id);
+});
+const LOOKUP = {}; ORDER.forEach(id => LOOKUP[id.toLowerCase()] = id);
+function resolve(name) {
+  if (!name) return null;
+  name = name.trim().replace(/\.md$/i, '').split('/').pop();
+  return LOOKUP[name.toLowerCase()] || null;
+}
+/* link graph */
+const EDGES = [];
+ORDER.forEach(id => {
+  const n = NOTES[id]; n.ctx = {};
+  const text = n.body.replace(/```[\s\S]*?```/g, '');
+  const re = /\[\[([^\]|#]*)(?:#[^\]|]*)?(?:\|[^\]]*)?\]\]/g; let m;
+  text.split('\n').forEach(line => {
+    re.lastIndex = 0;
+    while ((m = re.exec(line))) {
+      const t = resolve(m[1]); if (!t || t === id) continue;
+      n.out.add(t); if (!n.ctx[t]) n.ctx[t] = line;
+    }
+  });
+});
+ORDER.forEach(id => NOTES[id].out.forEach(t => { NOTES[t].in.add(id); EDGES.push([id, t]); }));
+/* undirected unique edges for graph */
+const UEDGES = (() => { const s = new Set(), out = []; EDGES.forEach(([a, b]) => { const k = a < b ? a + '\0' + b : b + '\0' + a; if (!s.has(k)) { s.add(k); out.push([a, b]); } }); return out; })();
+const NEIGH = {}; ORDER.forEach(id => NEIGH[id] = new Set());
+UEDGES.forEach(([a, b]) => { NEIGH[a].add(b); NEIGH[b].add(a); });
+
+/* reading order: Home, then each folder's index + notes, then root extras */
+const READ = [];
+['00 Home'].forEach(i => NOTES[i] && READ.push(i));
+folders.forEach(f => ORDER.filter(i => NOTES[i].folder === f).sort().forEach(i => READ.push(i)));
+ORDER.filter(i => !NOTES[i].folder && !READ.includes(i)).sort().forEach(i => READ.push(i));
+
+/* ============================================================
+   LaTeX → HTML (small subset, no dependencies)
+   ============================================================ */
+const SYM = {
+  alpha:'α',beta:'β',gamma:'γ',delta:'δ',epsilon:'ϵ',varepsilon:'ε',zeta:'ζ',eta:'η',theta:'θ',vartheta:'ϑ',iota:'ι',kappa:'κ',lambda:'λ',mu:'μ',nu:'ν',xi:'ξ',pi:'π',rho:'ρ',sigma:'σ',tau:'τ',upsilon:'υ',phi:'φ',varphi:'φ',chi:'χ',psi:'ψ',omega:'ω',
+  Gamma:'Γ',Delta:'Δ',Theta:'Θ',Lambda:'Λ',Xi:'Ξ',Pi:'Π',Sigma:'Σ',Phi:'Φ',Psi:'Ψ',Omega:'Ω',
+  times:'×',cdot:'·',div:'÷',pm:'±',mp:'∓',approx:'≈',neq:'≠',ne:'≠',le:'≤',leq:'≤',ge:'≥',geq:'≥',ll:'≪',gg:'≫',to:'→',rightarrow:'→',Rightarrow:'⇒',leftarrow:'←',leftrightarrow:'↔',Leftrightarrow:'⇔',implies:'⇒',
+  infty:'∞',partial:'∂',nabla:'∇',in:'∈',notin:'∉',subset:'⊂',subseteq:'⊆',cap:'∩',cup:'∪',propto:'∝',sim:'∼',simeq:'≃',equiv:'≡',cdots:'⋯',ldots:'…',dots:'…',vdots:'⋮',mid:'|',perp:'⊥',circ:'∘',prime:'′',ell:'ℓ',forall:'∀',exists:'∃',neg:'¬',land:'∧',lor:'∨',
+  lfloor:'⌊',rfloor:'⌋',lceil:'⌈',rceil:'⌉',langle:'⟨',rangle:'⟩',star:'⋆',bullet:'•',checkmark:'✓',therefore:'∴',emptyset:'∅',
+  quad:' ',qquad:'  ',',':' ',';':' ',':':' ','!':'','\\':' ',' ':' ','%':'%','&':'&','$':'$','#':'#','_':'_','{':'{','}':'}','|':'‖'
+};
+const FUNCS = new Set(['log','ln','exp','min','max','sin','cos','tan','lim','sup','inf','arg','det','Pr','gcd','mod','argmax','argmin','var','cov','corr','E','sgn','softmax']);
+const BIGOP = { sum:'∑', prod:'∏', int:'∫', lim:'lim', max:'max', min:'min', sup:'sup', inf:'inf', argmax:'argmax', argmin:'argmin' };
+function texToHtml(src) {
+  let i = 0; const s = src;
+  const skipWs = () => { while (i < s.length && /\s/.test(s[i])) i++; };
+  function group() { skipWs(); if (s[i] === '{') { i++; const h = seq('}'); if (s[i] === '}') i++; return h; } return atom(); }
+  function rawGroup() { skipWs(); if (s[i] !== '{') { return s[i++] || ''; } let d = 0, st = ++i; for (; i < s.length; i++) { if (s[i] === '{') d++; else if (s[i] === '}') { if (!d) break; d--; } } const r = s.slice(st, i); i++; return r; }
+  function seq(end) {
+    let out = '';
+    while (i < s.length && s[i] !== end) {
+      if (s[i] === '}' ) { i++; continue; }
+      const a = atomWithScripts(); out += a;
+    }
+    return out;
+  }
+  function atomWithScripts() {
+    skipWs(); if (i >= s.length || s[i] === '}') return '';
+    const startI = i;
+    let base = atom(); let isBig = false, under = false, bigName = '';
+    const m = s.slice(startI).match(/^\\([a-zA-Z]+)/);
+    if (m && BIGOP[m[1]] !== undefined) { isBig = true; bigName = m[1]; }
+    if (m && (m[1] === 'underbrace' || m[1] === 'overbrace')) under = m[1];
+    let sup = null, sub = null;
+    for (;;) {
+      skipWs();
+      if (s[i] === '^') { i++; sup = group(); }
+      else if (s[i] === '_') { i++; sub = group(); }
+      else if (s[i] === "'") { i++; sup = (sup || '') + '′'; }
+      else break;
+    }
+    if (under) { if (sub !== null || sup !== null) return `<span class="ubr">${under==='overbrace'?`<span class="lb">${sup||sub||''}</span>`:''}${base}${under==='underbrace'?`<span class="bd"></span><span class="lb">${sub||sup||''}</span>`:''}</span>`; return base; }
+    if (isBig && (sup !== null || sub !== null)) return `<span class="lim"><span class="lt">${sup || '&nbsp;'}</span><span class="lm">${base}</span><span class="lb">${sub || '&nbsp;'}</span></span>`;
+    if (sup !== null && sub !== null) return base + `<span class="scr"><span>${sup}</span><span>${sub}</span></span>`;
+    if (sup !== null) return base + `<sup style="font-size:.72em;line-height:0">${sup}</sup>`;
+    if (sub !== null) return base + `<sub style="font-size:.72em;line-height:0">${sub}</sub>`;
+    return base;
+  }
+  function atom() {
+    skipWs(); const c = s[i];
+    if (c === undefined) return '';
+    if (c === '{') { i++; const h = seq('}'); if (s[i] === '}') i++; return h; }
+    if (c === '\\') {
+      i++; let name = '';
+      if (/[a-zA-Z]/.test(s[i] || '')) { while (/[a-zA-Z]/.test(s[i] || '')) name += s[i++]; }
+      else name = s[i++] || '';
+      switch (name) {
+        case 'frac': case 'dfrac': case 'tfrac': { const n = group(), d = group(); return `<span class="frac"><span class="n">${n}</span><span class="d">${d}</span></span>`; }
+        case 'sqrt': { let idx = ''; skipWs(); if (s[i] === '[') { const e = s.indexOf(']', i); idx = `<sup style="font-size:.6em">${esc(s.slice(i + 1, e))}</sup>`; i = e + 1; } const b = group(); return `<span class="sqrt">${idx}<span class="rad">√</span><span class="rb">${b}</span></span>`; }
+        case 'text': case 'mathrm': case 'textbf': case 'operatorname': case 'mbox': case 'textit': case 'mathbf': case 'boldsymbol': case 'mathit': case 'mathcal': case 'mathbb': {
+          const raw = rawGroup();
+          if (name === 'mathbf' || name === 'boldsymbol') return `<b>${texToHtml(raw)}</b>`;
+          if (name === 'mathbb' || name === 'mathcal') return `<span class="fn">${esc(raw)}</span>`;
+          if (name === 'mathit') return `<i>${esc(raw)}</i>`;
+          return `<span class="tx">${esc(raw).replace(/ /g, '&nbsp;')}</span>`; }
+        case 'bar': case 'overline': { const b = group(); return `<span class="ovl">${b}</span>`; }
+        case 'hat': case 'widehat': { const b = group(); return `<span style="position:relative;display:inline-block">${b}<span style="position:absolute;left:0;right:0;top:-.45em;text-align:center;font-size:.8em;line-height:1">^</span></span>`; }
+        case 'tilde': case 'widetilde': { const b = group(); return `<span style="position:relative;display:inline-block">${b}<span style="position:absolute;left:0;right:0;top:-.4em;text-align:center;font-size:.8em;line-height:1">~</span></span>`; }
+        case 'vec': { const b = group(); return `<span style="position:relative;display:inline-block">${b}<span style="position:absolute;left:0;right:0;top:-.45em;text-align:center;font-size:.7em;line-height:1">→</span></span>`; }
+        case 'underbrace': case 'overbrace': { const b = group(); return b; }
+        case 'left': case 'right': { skipWs(); const d = s[i] || ''; if (d === '\\') { i++; const nm = s[i] === '{' || s[i] === '}' || s[i] === '|' ? s[i++] : (() => { let t = ''; while (/[a-zA-Z]/.test(s[i] || '')) t += s[i++]; return t; })(); return SYM[nm] || nm; } i++; return d === '.' ? '' : esc(d); }
+        case 'big': case 'Big': case 'bigg': case 'Bigg': case 'displaystyle': case 'textstyle': case 'limits': case 'nolimits': return '';
+        case 'ensuremath': return group();
+        default:
+          if (BIGOP[name]) return `<span class="fn" style="font-size:${name==='sum'||name==='prod'||name==='int'?'1.25em':'1em'}">${BIGOP[name]}</span>`;
+          if (FUNCS.has(name)) return `<span class="fn">${name}</span>`;
+          if (SYM[name] !== undefined) return SYM[name];
+          return `<span class="fn">${esc(name)}</span>`;
+      }
+    }
+    i++;
+    if (/[A-Za-z]/.test(c)) return `<i>${c}</i>`;
+    if (c === '<') return '&lt;'; if (c === '>') return '&gt;'; if (c === '&') return '';
+    if (c === '-') return '−'; if (c === '*') return '∗';
+    return esc(c);
+  }
+  try { return seq('\u0000'); } catch (e) { return esc(src); }
+}
+
+/* ============================================================
+   Syntax highlighting
+   ============================================================ */
+const KW = {
+  python: 'and as assert async await break class continue def del elif else except False finally for from global if import in is lambda None nonlocal not or pass raise return True try while with yield print self',
+  sql: 'SELECT FROM WHERE GROUP BY ORDER HAVING JOIN INNER LEFT RIGHT FULL OUTER CROSS ON AS AND OR NOT IN IS NULL LIKE BETWEEN EXISTS CASE WHEN THEN ELSE END UNION ALL DISTINCT LIMIT OFFSET INSERT INTO VALUES UPDATE SET DELETE CREATE TABLE INDEX VIEW DROP ALTER WITH RECURSIVE OVER PARTITION ROWS RANGE UNBOUNDED PRECEDING FOLLOWING CURRENT ROW ASC DESC USING TOP DATE INTERVAL PRIMARY KEY FOREIGN REFERENCES DEFAULT INT INTEGER VARCHAR TEXT DECIMAL NUMERIC FLOAT BOOLEAN EXPLAIN ANALYZE INTERSECT EXCEPT NATURAL LATERAL FETCH FIRST NEXT ONLY COALESCE',
+  dax: 'VAR RETURN IF ELSE TRUE FALSE IN NOT AND OR DEFINE EVALUATE MEASURE ORDER BY ASC DESC',
+  excel: '', vba: 'Sub End Function Dim As Set If Then Else ElseIf For Next Each In Do Loop While Wend Call Public Private Integer String Long Double Boolean Variant Range Worksheets True False Not And Or Exit With',
+  css: '', http: 'GET POST PUT PATCH DELETE HTTP', gherkin: 'Feature Scenario Given When Then And But Background Examples', abap: 'SELECT FROM WHERE INTO TABLE DATA TYPES LOOP AT ENDLOOP IF ELSE ENDIF READ WRITE CALL FUNCTION METHOD ENDMETHOD CLASS ENDCLASS'
+};
+function highlight(code, lang) {
+  lang = (lang || '').toLowerCase();
+  const kwset = new Set((KW[lang] || '').split(/\s+/).filter(Boolean).map(k => k.toUpperCase()));
+  const ci = lang !== 'python' ;
+  const cm = lang === 'python' ? '#[^\\n]*' : (lang === 'vba' ? "'[^\\n]*" : (lang === 'css' ? '/\\*[\\s\\S]*?\\*/' : '--[^\\n]*|//[^\\n]*|/\\*[\\s\\S]*?\\*/'));
+  const re = new RegExp(`(${cm})|("""[\\s\\S]*?"""|'''[\\s\\S]*?'''|"(?:[^"\\\\\\n]|\\\\.)*"|'(?:[^'\\\\\\n]|\\\\.)*')|(\\b\\d[\\d,]*\\.?\\d*%?\\b)|([A-Za-z_][\\w.]*)(?=\\s*\\()|(\\$?[A-Z]{1,3}\\$?\\d+(?::\\$?[A-Z]{1,3}\\$?\\d+)?\\b)|([A-Za-z_]\\w*)`, 'g');
+  let out = '', last = 0, m;
+  while ((m = re.exec(code))) {
+    out += esc(code.slice(last, m.index)); last = re.lastIndex;
+    const t = esc(m[0]);
+    if (m[1]) out += `<span class="tk-c">${t}</span>`;
+    else if (m[2]) out += `<span class="tk-s">${t}</span>`;
+    else if (m[3]) out += `<span class="tk-n">${t}</span>`;
+    else if (m[4]) { const up = m[4].toUpperCase(); out += kwset.has(up) && lang !== 'excel' ? `<span class="tk-k">${t}</span>` : `<span class="tk-f">${t}</span>`; }
+    else if (m[5] && lang === 'excel') out += `<span class="tk-r">${t}</span>`;
+    else if (m[6]) out += (kwset.has(m[6].toUpperCase()) && (lang !== 'python' || m[6] === m[6].toLowerCase() || ['True','False','None'].includes(m[6]))) ? `<span class="tk-k">${t}</span>` : t;
+    else out += t;
+  }
+  return out + esc(code.slice(last));
+}
+
+/* ============================================================
+   Markdown renderer
+   ============================================================ */
+function inline(s) {
+  const stash = []; const put = h => { stash.push(h); return '\u0000' + (stash.length - 1) + '\u0001'; };
+  s = s.replace(/\\\$/g, () => put('$'));
+  s = s.replace(/(`+)([\s\S]*?[^`])\1(?!`)/g, (m, a, c) => put('<code>' + esc(c.trim()) + '</code>'));
+  s = s.replace(/\$\$([\s\S]+?)\$\$/g, (m, c) => put('<span class="mathi">' + texToHtml(c) + '</span>'));
+  s = s.replace(/\$(?=\S)((?:\\.|[^$\\\n])+?)\$(?!\d)/g, (m, c) => (/\s$/.test(c) && !c.includes('\\')) ? m : put('<span class="mathi">' + texToHtml(c.trim()) + '</span>'));
+  s = s.replace(/\\([\\`*_{}\[\]()#+\-.!|~<>])/g, (m, c) => put(esc(c)));
+  s = s.replace(/\[\[([^\]]+)\]\]/g, (m, body) => {
+    let [target, alias] = body.split('|'); target = target.trim();
+    const hi = target.indexOf('#'); let name = hi >= 0 ? target.slice(0, hi) : target; const head = hi >= 0 ? target.slice(hi + 1) : '';
+    const id = name ? resolve(name) : (CUR || null);
+    const label = (alias != null ? alias : (name ? name : '') + (head ? (name ? ' › ' : '') + head : '')).trim();
+    if (!id && /['"(),=]/.test(target)) return m;
+    if (!id) return put(`<span class="unresolved wikilink" title="Note not found">${esc(label)}</span>`);
+    return put(`<a class="wikilink" href="#/${encodeURIComponent(id)}${head ? '|' + encodeURIComponent(head) : ''}" data-id="${esc(id)}" data-h="${esc(head)}">${esc(label)}</a>`);
+  });
+  s = s.replace(/!?\[([^\]]*)\]\(((?:[^()\s]|\([^()\s]*\))+)(?:\s+"[^"]*")?\)/g, (m, t, u) => put(`<a class="ext" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${inline(t)}</a>`));
+  s = s.replace(/&lt;(https?:[^&\s]+)&gt;|<(https?:\/\/[^>\s]+)>/g, (m, a, b) => put(`<a class="ext" href="${esc(a || b)}" target="_blank" rel="noopener noreferrer">${esc(a || b)}</a>`));
+  s = esc(s);
+  s = s.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+       .replace(/(^|[^\w*])__(.+?)__(?!\w)/g, '$1<strong>$2</strong>')
+       .replace(/\*(?!\s)(.+?)(?<!\s)\*/g, '<em>$1</em>')
+       .replace(/(^|[^\w])_(?!\s)(.+?)(?<!\s)_(?!\w)/g, '$1<em>$2</em>')
+       .replace(/~~(.+?)~~/g, '<del>$1</del>')
+       .replace(/==(?!\s)(.+?)(?<!\s)==/g, '<mark>$1</mark>');
+  let guard = 0;
+  while (/\u0000\d+\u0001/.test(s) && guard++ < 6) s = s.replace(/\u0000(\d+)\u0001/g, (m, k) => stash[+k]);
+  return s;
+}
+let CUR = null; // note id currently rendering, for [[#heading]] links
+const indentOf = l => { let n = 0; for (const c of l) { if (c === ' ') n++; else if (c === '\t') n += 4; else break; } return n; };
+const LIST_RE = /^(\s*)([-*+]|\d+[.)])\s+(.*)$/;
+const BLOCK_START = l => /^\s*(```|~~~)/.test(l) || /^#{1,6}\s/.test(l) || /^\s*>/.test(l) || /^\s*([-*_])(\s*\1){2,}\s*$/.test(l) || LIST_RE.test(l) || /^\s*\$\$/.test(l);
+function splitRow(line) {
+  line = line.trim(); if (line.startsWith('|')) line = line.slice(1); if (line.endsWith('|') && !line.endsWith('\\|')) line = line.slice(0, -1);
+  const cells = []; let cur = '', inCode = false, depth = 0;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (c === '\\' && line[i + 1] === '|') { cur += '\\|'; i++; continue; }
+    if (c === '`') inCode = !inCode;
+    if (!inCode && c === '[' && line[i + 1] === '[') { depth++; cur += '[['; i++; continue; }
+    if (!inCode && c === ']' && line[i + 1] === ']' && depth) { depth--; cur += ']]'; i++; continue; }
+    if (c === '|' && !inCode && !depth) { cells.push(cur); cur = ''; continue; }
+    cur += c;
+  }
+  cells.push(cur); return cells.map(c => c.trim().replace(/\\\|/g, '|'));
+}
+function renderBlocks(lines, opts = {}) {
+  let i = 0; const out = [];
+  while (i < lines.length) {
+    const line = lines[i];
+    if (!line.trim()) { i++; continue; }
+    let m;
+    if ((m = line.match(/^\s*(```+|~~~+)\s*([\w+-]*)/))) {
+      const fence = m[1], lang = m[2]; const buf = []; i++;
+      while (i < lines.length && !lines[i].trim().startsWith(fence)) buf.push(lines[i++]); i++;
+      const code = buf.join('\n');
+      out.push(`<pre><span class="lang">${esc(lang)}</span><button class="copy">Copy</button><code>${highlight(code, lang)}</code></pre>`); continue;
+    }
+    if (/^\s*\$\$/.test(line)) {
+      let t = line.trim().slice(2); const buf = [];
+      if (t.includes('$$')) { buf.push(t.slice(0, t.indexOf('$$'))); i++; }
+      else { buf.push(t); i++; while (i < lines.length && !lines[i].includes('$$')) buf.push(lines[i++]); if (i < lines.length) { buf.push(lines[i].slice(0, lines[i].indexOf('$$'))); i++; } }
+      out.push(`<div class="mathd">${texToHtml(buf.join(' '))}</div>`); continue;
+    }
+    if ((m = line.match(/^(#{1,6})\s+(.*?)\s*#*\s*$/))) {
+      const lvl = m[1].length, txt = m[2];
+      out.push(`<h${lvl} data-n="${esc(norm(txt.replace(/\[\[|\]\]/g, '')))}">${inline(txt)}</h${lvl}>`); i++; continue;
+    }
+    if (/^\s*([-*_])(\s*\1){2,}\s*$/.test(line)) { out.push('<hr>'); i++; continue; }
+    if (/^\s*>/.test(line)) {
+      const buf = [];
+      while (i < lines.length && /^\s*>/.test(lines[i])) buf.push(lines[i++].replace(/^\s*>\s?/, ''));
+      const cm = buf[0].match(/^\[!(\w+)\][+-]?\s*(.*)$/);
+      if (cm) {
+        const type = cm[1].toLowerCase(); const icon = CALLOUT_ICON[type] || CALLOUT_ICON.note;
+        const title = cm[2] || (type[0].toUpperCase() + type.slice(1));
+        out.push(`<div class="callout ${esc(type)}"><div class="ct"><span>${icon}</span><span>${inline(title)}</span></div><div class="cb">${renderBlocks(buf.slice(1))}</div></div>`);
+      } else out.push(`<blockquote>${renderBlocks(buf)}</blockquote>`);
+      continue;
+    }
+    if (line.includes('|') && i + 1 < lines.length && /^\s*\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?\s*$/.test(lines[i + 1]) && lines[i + 1].includes('-')) {
+      const head = splitRow(line); const al = splitRow(lines[i + 1]).map(c => /^:-+:$/.test(c) ? 'center' : /-:$/.test(c) ? 'right' : ''); i += 2; const rows = [];
+      while (i < lines.length && lines[i].trim() && lines[i].includes('|')) rows.push(splitRow(lines[i++]));
+      const td = (t, c, a) => `<${t}${a ? ` style="text-align:${a}"` : ''}>${inline(c || '')}</${t}>`;
+      out.push(`<div class="tablewrap"><table><thead><tr>${head.map((c, k) => td('th', c, al[k])).join('')}</tr></thead><tbody>${rows.map(r => '<tr>' + head.map((_, k) => td('td', r[k], al[k])).join('') + '</tr>').join('')}</tbody></table></div>`);
+      continue;
+    }
+    if ((m = line.match(LIST_RE))) {
+      const base = indentOf(line), ordered = /\d/.test(m[2]); const items = []; const start = ordered ? parseInt(m[2]) : 1;
+      while (i < lines.length) {
+        const lm = lines[i].match(LIST_RE);
+        if (!lm || indentOf(lines[i]) !== base) break;
+        const cInd = indentOf(lines[i]) + lm[2].length + 1; const body = [lm[3]]; let j = i + 1, loose = false;
+        while (j < lines.length) {
+          const l = lines[j];
+          if (!l.trim()) { let k = j + 1; while (k < lines.length && !lines[k].trim()) k++; if (k < lines.length && indentOf(lines[k]) > base) { body.push(''); loose = true; j++; continue; } break; }
+          if (indentOf(l) > base) { body.push(l.replace(/\t/g, '    ').slice(Math.min(cInd, indentOf(l)))); j++; continue; }
+          break;
+        }
+        let task = null, first = body[0].match(/^\[( |x|X)\]\s+(.*)$/);
+        if (first) { task = first[1] !== ' '; body[0] = first[2]; }
+        let h = renderBlocks(body);
+        if (!loose) h = h.replace(/^<p>([\s\S]*?)<\/p>/, '$1');
+        items.push(`<li${task !== null ? ' class="task"' : ''}>${task !== null ? `<input type="checkbox" disabled${task ? ' checked' : ''}>` : ''}${h}</li>`);
+        i = j; while (i < lines.length && !lines[i].trim() && i + 1 < lines.length && LIST_RE.test(lines[i + 1]) && indentOf(lines[i + 1]) === base) i++;
+      }
+      out.push(ordered ? `<ol${start !== 1 ? ` start="${start}"` : ''}>${items.join('')}</ol>` : `<ul>${items.join('')}</ul>`); continue;
+    }
+    const buf = [line.trim()]; i++;
+    while (i < lines.length && lines[i].trim() && !BLOCK_START(lines[i]) && !(lines[i].includes('|') && i + 1 < lines.length && /^\s*\|?\s*:?-{2,}/.test(lines[i + 1]))) buf.push(lines[i++].trim());
+    out.push(`<p>${buf.map(inline).join('<br>')}</p>`);
+  }
+  return out.join('\n');
+}
+function renderMarkdown(md, id) {
+  CUR = id; md = md.replace(/\r\n?/g, '\n').replace(/^\t+/gm, t => '    '.repeat(t.length));
+  const h = renderBlocks(md.split('\n')); CUR = null; return h;
+}
+window.__render = renderMarkdown;
+
+/* ============================================================
+   State, studied tracker, theme
+   ============================================================ */
+let studied = new Set(store.get('studied', []));
+const saveStudied = () => store.set('studied', [...studied]);
+const TRACKABLE = READ.filter(id => !NOTES[id].isIndex && NOTES[id].folder);
+function updateProgress() {
+  const done = TRACKABLE.filter(id => studied.has(id)).length;
+  $('#progtxt').textContent = `${done} / ${TRACKABLE.length} topics studied`;
+  $('#progbar').style.width = (100 * done / TRACKABLE.length) + '%';
+  $$('.file[data-id]').forEach(el => { const ck = el.querySelector('.ck'); if (ck) ck.textContent = studied.has(el.dataset.id) ? '✓' : ''; });
+  $$('.folder[data-f]').forEach(el => { const f = el.dataset.f; const ids = TRACKABLE.filter(i => NOTES[i].folder === f); el.querySelector('.cnt').textContent = ids.filter(i => studied.has(i)).length + '/' + ids.length; });
+  updateStudiedBtn();
+}
+function updateStudiedBtn() {
+  const b = $('#b-studied'); const ok = CURID && TRACKABLE.includes(CURID);
+  b.style.display = ok ? '' : 'none';
+  const s = ok && studied.has(CURID); b.classList.toggle('studied', s);
+  b.innerHTML = IC(s ? '<circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.8 2.8L16 9.5"/>' : '<circle cx="12" cy="12" r="9"/>') + `<span class="lbl">${s ? 'Studied' : 'Mark studied'}</span>`;
+  b.setAttribute('aria-pressed', s ? 'true' : 'false'); b.title = s ? 'Studied (click to unmark)' : 'Mark as studied';
+}
+const MQ_DARK = matchMedia('(prefers-color-scheme: dark)');
+const PREFS = Object.assign({ theme: 'auto', size: 1, font: 'sans', width: 1 }, store.get('prefs', {}));
+(function () { const old = store.get('theme', null); if (!store.get('prefs', null) && (old === 'light' || old === 'dark')) PREFS.theme = old; })();
+function applyPrefs() {
+  const r = document.documentElement, t = PREFS.theme === 'auto' ? (MQ_DARK.matches ? 'dark' : 'light') : PREFS.theme;
+  r.dataset.theme = t; r.dataset.size = PREFS.size; r.dataset.font = PREFS.font; r.dataset.width = PREFS.width;
+  const m = document.querySelector('meta[name=theme-color]'); if (m) m.content = getComputedStyle(r).getPropertyValue('--bg').trim() || (t === 'dark' ? '#15161c' : '#fdfcf9');
+  $$('#aa .seg').forEach(s => $$('button', s).forEach(b => b.classList.toggle('on', String(PREFS[s.dataset.k]) === b.dataset.v)));
+  GRAPHS.forEach(g => g.refreshTheme());
+  requestAnimationFrame(() => fitMath());
+}
+function setPref(k, v) { PREFS[k] = v; store.set('prefs', PREFS); applyPrefs(); }
+if (MQ_DARK.addEventListener) MQ_DARK.addEventListener('change', () => { if (PREFS.theme === 'auto') applyPrefs(); });
+applyPrefs();
+
+/* ============================================================
+   Sidebar: tree, search, tags
+   ============================================================ */
+function buildTree() {
+  const t = $('#tree'); t.innerHTML = '';
+  const fileEl = id => { const n = NOTES[id]; const d = document.createElement('div'); d.className = 'file' + (n.isIndex ? ' idx' : ''); d.dataset.id = id; d.innerHTML = `<span class="t">${esc(n.isIndex ? 'Index' : id)}</span><span class="ck"></span>`; d.title = id; return d; };
+  const root = document.createElement('div'); root.className = 'rootfiles';
+  READ.filter(i => !NOTES[i].folder).forEach(i => root.appendChild(fileEl(i))); t.appendChild(root);
+  folders.forEach(f => {
+    const d = document.createElement('div'); d.className = 'folder'; d.dataset.f = f;
+    d.innerHTML = `<div class="fh"><span class="chev">▶</span><span class="dot" style="background:${folderColor(f)}"></span><span>${esc(folderLabel(f))}</span><span class="cnt"></span></div><div class="kids"></div>`;
+    const kids = $('.kids', d);
+    READ.filter(i => NOTES[i].folder === f).sort((a, b) => (NOTES[b].isIndex - NOTES[a].isIndex) || a.localeCompare(b)).forEach(i => kids.appendChild(fileEl(i)));
+    t.appendChild(d);
+  });
+  t.addEventListener('click', e => {
+    const fh = e.target.closest('.fh'); if (fh) { fh.parentElement.classList.toggle('open'); return; }
+    const f = e.target.closest('.file'); if (f) { go(f.dataset.id); document.body.classList.remove('showleft'); }
+  });
+}
+function openFolderOf(id) { const f = NOTES[id].folder; if (!f) return; const el = $(`.folder[data-f="${CSS.escape(f)}"]`); el && el.classList.add('open'); }
+
+function searchNotes(q) {
+  q = q.trim(); if (!q) return [];
+  let tagFilter = null; const tm = q.match(/^tag:(\S+)\s*(.*)$/i); if (tm) { tagFilter = tm[1].toLowerCase(); q = tm[2]; }
+  const terms = q.toLowerCase().split(/\s+/).filter(Boolean); const res = [];
+  ORDER.forEach(id => {
+    const n = NOTES[id]; if (tagFilter && !n.tags.some(t => t.toLowerCase() === tagFilter)) return;
+    const tl = id.toLowerCase(); let score = 0, ok = true, firstPos = -1;
+    for (const t of terms) {
+      const inTitle = tl.includes(t); let c = 0, p = -1, idx = 0;
+      while ((idx = n.low.indexOf(t, idx)) !== -1 && c < 50) { if (p < 0) p = idx; c++; idx += t.length; }
+      if (!inTitle && !c) { ok = false; break; }
+      score += (inTitle ? 60 : 0) + Math.min(c, 30) + (c ? 2 : 0);
+      if (firstPos < 0 && p >= 0) firstPos = p;
+    }
+    if (!ok) return;
+    if (!terms.length) score = 1;
+    if (n.isIndex) score *= .6;
+    res.push({ id, score, pos: firstPos });
+  });
+  return res.sort((a, b) => b.score - a.score).slice(0, 60).map(r => ({ ...r, terms }));
+}
+function snippet(n, pos, terms) {
+  if (pos < 0) return '';
+  let s = n.body.slice(Math.max(0, pos - 60), pos + 150).replace(/[#>*`|\[\]]|\$/g, '').replace(/\s+/g, ' ').trim();
+  s = esc(s); terms.forEach(t => { if (t.length > 1) s = s.replace(new RegExp(esc(t).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), x => `<mark>${x}</mark>`); });
+  return '…' + s + '…';
+}
+let LASTQ = '';
+function doSearch() {
+  const q = $('#q').value; LASTQ = q; const box = $('#results');
+  if (!q.trim()) { box.innerHTML = '<p style="color:var(--tx3);font-size:12.5px;margin-top:10px">Search every note — try <b>EOQ</b>, <b>window function</b>, <b>tag:tier1</b> or <b>bullwhip</b>.</p>'; return; }
+  const r = searchNotes(q);
+  box.innerHTML = (r.length ? `<small style="color:var(--tx3);display:block;margin:8px 4px">${r.length}${r.length === 60 ? '+' : ''} notes</small>` : '<p style="color:var(--tx3);margin:10px 4px">No matches.</p>') +
+    r.map(x => `<div class="res" data-id="${esc(x.id)}"><b>${esc(x.id)}</b><small>${esc(folderLabel(NOTES[x.id].folder))}</small><p>${snippet(NOTES[x.id], x.pos, x.terms)}</p></div>`).join('');
+}
+function buildTags() {
+  const c = {}; ORDER.forEach(id => NOTES[id].tags.forEach(t => c[t] = (c[t] || 0) + 1));
+  $('#taglist').innerHTML = Object.entries(c).sort((a, b) => b[1] - a[1]).map(([t, k]) => `<button class="tag" data-t="${esc(t)}">#${esc(t)}<small>${k}</small></button>`).join('');
+}
+function showTab(name) {
+  $$('.tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === name));
+  ['files', 'search', 'tags'].forEach(t => $('#tab-' + t).style.display = t === name ? '' : 'none');
+  if (name === 'search') { $('#q').focus(); $('#q').select(); doSearch(); }
+}
+
+/* ============================================================
+   Navigation + note view
+   ============================================================ */
+let CURID = null, VIEW = 'note';
+const cache = {};
+function parseHash() {
+  const h = decodeURIComponent((location.hash || '').replace(/^#\/?/, ''));
+  if (h === '__graph') return { graph: true };
+  const [id, head] = h.split('|'); return { id: NOTES[id] ? id : '00 Home', head: head || '' };
+}
+function go(id, head) { document.body.classList.remove('showleft', 'showright'); location.hash = '#/' + encodeURIComponent(id) + (head ? '|' + encodeURIComponent(head) : ''); }
+function toast(t) { const e = $('#toast'); e.textContent = t; e.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(() => e.classList.remove('show'), 1800); }
+
+function route() {
+  const p = parseHash();
+  if (p.graph) { showGraphView(true); return; }
+  showGraphView(false); openNote(p.id, p.head);
+}
+function fitMath() {
+  const art = $('#note'); if (!art || !art.offsetParent) return;
+  const ms = $$('.mathi', art); ms.forEach(el => el.classList.remove('wide'));
+  ms.forEach(el => { if (el.closest('.tablewrap')) return; const box = el.closest('p,li,blockquote,div'); if (box && el.getBoundingClientRect().right > box.getBoundingClientRect().right + 1) el.classList.add('wide'); });
+}
+function decorate(art, n, nmeta) {
+  const h1 = art.querySelector('h1'); if (h1 && nmeta) h1.insertAdjacentHTML('afterend', nmeta);
+  art.classList.toggle('home', n.id === '00 Home');
+  $$('hr', art).forEach(hr => { const nx = hr.nextElementSibling; if (nx && nx.tagName === 'H2') hr.remove(); });
+  $$('h2', art).forEach(h => { const t0 = h.firstChild; const m = t0 && t0.nodeType === 3 && t0.nodeValue.match(/^(\d+)\.\s+/); if (m) { h.dataset.num = m[1]; t0.nodeValue = t0.nodeValue.slice(m[0].length); } });
+  $$('h3', art).forEach(h => { h.dataset.k = norm(h.textContent).split(' ')[0]; });
+  const st = $$('h2', art).find(h => /^Sub-topics in this note/i.test(h.textContent));
+  if (st && st.nextElementSibling && st.nextElementSibling.tagName === 'OL') {
+    const ol = st.nextElementSibling, box = document.createElement('details'); box.className = 'subtoc'; box.open = !NARROW_L.matches;
+    const sm = document.createElement('summary'); sm.innerHTML = `Sub-topics in this note <span class="cnt">${ol.children.length}</span>`;
+    st.before(box); st.remove(); box.append(sm, ol);
+    $$('li a', box).forEach(a => { const t0 = a.firstChild; if (t0 && t0.nodeType === 3) t0.nodeValue = t0.nodeValue.replace(/^\d+\.\s+/, ''); });
+  }
+  if (n.fm.area) { const aq = $$('blockquote', art).find(b => /^Area:/.test(b.textContent.trim())); if (aq) aq.classList.add('metaq'); }
+  const nl = $$('p', art).find(p => p.textContent.trim().startsWith('⬅')); if (nl) nl.classList.add('navline');
+  fitMath();
+}
+function openNote(id, head) {
+  const n = NOTES[id]; const same = CURID === id; CURID = id;
+  if (!same) {
+    const art = $('#note');
+    let html = cache[id] || (cache[id] = renderMarkdown(n.body, id));
+    const fm = n.fm;
+    const words = (n.body.match(/\S+/g) || []).length, mins = Math.max(1, Math.round(words / 230));
+    const eyebrow = fm.area ? `<div class="eyebrow"><i style="background:${n.color}"></i>${esc(fm.area)}${fm.tier ? ' · ' + esc(fm.tier) : ''}</div>` : '';
+    const bits = [`${mins} min read`]; if (fm.subtopics) bits.push(`${esc(String(fm.subtopics))} sub-topics`); if (fm.roles) bits.push(esc(String(fm.roles)));
+    const nmeta = (words > 400 ? `<div class="nmeta">${bits.map(b => `<span>${b}</span>`).join('')}</div>` : '') + (n.tags.filter(t => t !== 'index').length ? `<div class="ntags">${n.tags.filter(t => t !== 'index').map(t => `<button class="tag" data-t="${esc(t)}">#${esc(t)}</button>`).join('')}</div>` : '');
+    const chipHL = LASTHL ? `<div class="hlchip">Highlighting “${esc(LASTHL)}” <button id="hlx" title="Clear">✕</button></div>` : '';
+    const idx = READ.indexOf(id), pv = READ[idx - 1], nx = READ[idx + 1];
+    const navrow = `<div class="navrow">${pv ? `<a href="#/${encodeURIComponent(pv)}"><small>← Previous</small>${esc(NOTES[pv].isIndex ? 'Index · ' + folderLabel(NOTES[pv].folder) : pv)}</a>` : '<span></span>'}${nx ? `<a href="#/${encodeURIComponent(nx)}"><small>Next →</small>${esc(NOTES[nx].isIndex ? 'Index · ' + folderLabel(NOTES[nx].folder) : nx)}</a>` : '<span></span>'}</div>`;
+    art.innerHTML = chipHL + eyebrow + html + navrow; decorate(art, n, nmeta);
+    if (LASTHL) highlightTerms(art, LASTHL);
+    $('#crumb').innerHTML = (n.folder ? `<span class="pre">${esc(folderLabel(n.folder))} / </span>` : '') + `<b>${esc(n.isIndex ? 'Index' : id.replace(/^\d{3}\s+/, ''))}</b>`;
+    document.title = id + ' · Placement Prep Vault';
+    $$('.file').forEach(f => f.classList.toggle('on', f.dataset.id === id));
+    openFolderOf(id);
+    const on = $(`.file[data-id="${CSS.escape(id)}"]`); on && on.scrollIntoView({ block: 'nearest' });
+    buildToc(); buildLinks(id);
+    drawLocal();
+    store.set('last', id);
+    $('#b-prev').disabled = !pv; $('#b-next').disabled = !nx;
+  }
+  updateStudiedBtn();
+  const c = $('#content');
+  if (head) { const el = $$('#note h1,#note h2,#note h3,#note h4').find(h => h.dataset.n === norm(head)); el ? el.scrollIntoView({ block: 'start' }) : (c.scrollTop = 0); if (el) { el.animate([{ background: 'rgba(251,191,36,.35)' }, { background: 'transparent' }], 1500); } }
+  else if (!same) c.scrollTop = 0;
+  if (same) fitMath();
+  onScroll();
+}
+let LASTHL = '';
+function highlightTerms(root, q) {
+  const terms = q.toLowerCase().split(/\s+/).filter(t => t.length > 1 && !t.startsWith('tag:')); if (!terms.length) return;
+  const re = new RegExp('(' + terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')', 'gi');
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: n => n.parentElement.closest('.hlchip,button,mark') || !re.test(n.nodeValue) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(nd => { re.lastIndex = 0; const sp = document.createElement('span'); sp.innerHTML = esc(nd.nodeValue).replace(re, '<mark>$1</mark>'); nd.replaceWith(...sp.childNodes); });
+  const first = $('#note mark'); first && first.scrollIntoView({ block: 'center' });
+}
+let TOC = [];
+function buildToc() {
+  const hs = $$('#note h2'); TOC = hs;
+  const h1 = $('#note h1'); const items = [];
+  if (h1) items.push(`<a data-i="-1" href="#" class="on">${esc(h1.textContent)}</a>`);
+  hs.forEach((h, k) => items.push(`<a data-i="${k}" href="#">${esc((h.dataset.num ? h.dataset.num + '. ' : '') + h.textContent)}</a>`));
+  $('#toc').innerHTML = items.length > 1 || h1 ? items.join('') : '<small style="color:var(--tx3)">No headings</small>';
+}
+function buildLinks(id) {
+  const n = NOTES[id];
+  const bl = [...n.in].sort(); $('#blcount').textContent = bl.length;
+  $('#backlinks').innerHTML = bl.length ? bl.map(b => `<div class="bl" data-id="${esc(b)}">${esc(NOTES[b].isIndex ? 'Index · ' + folderLabel(NOTES[b].folder) : b)}<small>${esc((NOTES[b].ctx[id] || '').replace(/\[\[([^\]|]+)\|?([^\]]*)\]\]/g, (m, a, t) => t || a).replace(/[*_`#>|]/g, '').slice(0, 110))}</small></div>`).join('') : '<small style="color:var(--tx3)">No backlinks</small>';
+  const ol = [...n.out].sort(); $('#olcount').textContent = ol.length;
+  $('#outlinks').innerHTML = ol.length ? ol.map(b => `<div class="bl" data-id="${esc(b)}">${esc(NOTES[b].isIndex ? 'Index · ' + folderLabel(NOTES[b].folder) : b)}</div>`).join('') : '<small style="color:var(--tx3)">No outgoing links</small>';
+}
+function onScroll() {
+  const c = $('#content'); $('#totop').classList.toggle('show', VIEW === 'note' && c.scrollTop > 700); if (VIEW !== 'note') return;
+  const max = c.scrollHeight - c.clientHeight; $('#progress i').style.width = max > 0 ? (100 * c.scrollTop / max) + '%' : '0';
+  const y = c.getBoundingClientRect().top + 60; let cur = -1;
+  TOC.forEach((h, k) => { if (h.getBoundingClientRect().top <= y) cur = k; });
+  $$('#toc a').forEach(a => a.classList.toggle('on', +a.dataset.i === cur));
+}
+
+/* hover previews */
+const pop = $('#pop'); let popTimer, hideTimer;
+function previewHtml(id, head) {
+  const n = NOTES[id]; let lines = n.body.replace(/\r/g, '').split('\n');
+  if (head) {
+    const k = lines.findIndex(l => /^#{1,6}\s/.test(l) && norm(l.replace(/^#+\s*/, '')) === norm(head));
+    if (k >= 0) { const lv = lines[k].match(/^#+/)[0].length; let e = k + 1; while (e < lines.length && !(/^#{1,6}\s/.test(lines[e]) && lines[e].match(/^#+/)[0].length <= lv)) e++; lines = lines.slice(k, Math.min(e, k + 40)); }
+  } else {
+    const k = lines.findIndex(l => /^---\s*$/.test(l)); lines = lines.slice(0, k > 8 ? k : 60);
+  }
+  return `<div class="ph">${esc(folderLabel(n.folder))}${head ? ' › ' + esc(head) : ''}</div><div class="md">${renderMarkdown(lines.join('\n').slice(0, 2600), id)}</div>`;
+}
+document.addEventListener('mouseover', e => {
+  const a = e.target.closest('a.wikilink[data-id]');
+  if (a) { clearTimeout(hideTimer); clearTimeout(popTimer); popTimer = setTimeout(() => {
+    pop.innerHTML = previewHtml(a.dataset.id, a.dataset.h); pop.style.display = 'block';
+    const r = a.getBoundingClientRect(); const w = pop.offsetWidth, h = pop.offsetHeight;
+    let x = Math.min(Math.max(8, r.left), innerWidth - w - 8); let y = r.bottom + 8; if (y + h > innerHeight - 8) y = Math.max(8, r.top - h - 8);
+    pop.style.left = x + 'px'; pop.style.top = y + 'px';
+  }, 280); return; }
+  if (e.target.closest('#pop')) { clearTimeout(hideTimer); return; }
+});
+document.addEventListener('mouseout', e => {
+  if (e.target.closest('a.wikilink') || e.target.closest('#pop')) { clearTimeout(popTimer); clearTimeout(hideTimer); hideTimer = setTimeout(() => pop.style.display = 'none', 220); }
+});
+
+/* ============================================================
+   Force-directed graph (canvas)
+   ============================================================ */
+class Graph {
+  constructor(host, o) {
+    this.host = host; this.o = o; this.canvas = document.createElement('canvas'); host.appendChild(this.canvas);
+    this.ctx = this.canvas.getContext('2d'); this.k = 1; this.tx = 0; this.ty = 0; this.alpha = 1; this.hover = null; this.drag = null; this.filter = ''; this.hidden = new Set();
+    this.opt = Object.assign({ repel: 1, link: 1, center: 1, labels: true, size: 1, hideHubs: false }, o.opt || {});
+    this.setData(o.ids); this.refreshTheme(); this.bind();
+    this.ro = new ResizeObserver(() => { this.resize(); this.draw(); }); this.ro.observe(host);
+    GRAPHS.add(this); this.resize(); this.loop();
+  }
+  setData(ids) {
+    const set = new Set(ids); const old = this.nodeMap || {};
+    this.nodes = ids.map((id, i) => {
+      if (old[id]) return old[id];
+      const n = NOTES[id]; const ang = (folders.indexOf(n.folder) + 1) / (folders.length + 1) * Math.PI * 2; const r = this.o.local ? 60 : 220;
+      return { id, x: Math.cos(ang) * r + (Math.random() - .5) * 90, y: Math.sin(ang) * r + (Math.random() - .5) * 90, vx: 0, vy: 0, deg: 0, color: n.color, hub: n.isIndex || id === '00 Home' };
+    });
+    this.nodeMap = {}; this.nodes.forEach(n => this.nodeMap[n.id] = n);
+    this.edges = UEDGES.filter(([a, b]) => set.has(a) && set.has(b)).map(([a, b]) => ({ a: this.nodeMap[a], b: this.nodeMap[b] }));
+    this.nodes.forEach(n => n.deg = 0); this.edges.forEach(e => { e.a.deg++; e.b.deg++; });
+    this.adj = {}; this.nodes.forEach(n => this.adj[n.id] = new Set()); this.edges.forEach(e => { this.adj[e.a.id].add(e.b.id); this.adj[e.b.id].add(e.a.id); });
+    this.alpha = 1;
+  }
+  refreshTheme() { const cs = getComputedStyle(document.documentElement); this.cols = { bg: cs.getPropertyValue('--bg').trim(), tx: cs.getPropertyValue('--tx').trim(), tx2: cs.getPropertyValue('--tx2').trim(), edge: cs.getPropertyValue('--tx3').trim(), ac: cs.getPropertyValue('--ac').trim(), ok: cs.getPropertyValue('--ok').trim() }; this.draw(); }
+  resize() { const r = this.host.getBoundingClientRect(); this.dpr = devicePixelRatio || 1; this.w = r.width; this.h = r.height; this.canvas.width = r.width * this.dpr; this.canvas.height = r.height * this.dpr; if (!this.fitted && r.width > 50) { this.fit(); } }
+  active(n) { if (this.hidden.has(NOTES[n.id].folder)) return false; if (this.opt.hideHubs && n.id === '00 Home') return false; return true; }
+  fit() {
+    const ns = this.nodes.filter(n => this.active(n)); if (!ns.length || !this.w) return;
+    let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9; ns.forEach(n => { x0 = Math.min(x0, n.x); x1 = Math.max(x1, n.x); y0 = Math.min(y0, n.y); y1 = Math.max(y1, n.y); });
+    const pad = this.o.local ? 30 : 70; const lp = (!this.o.local && this.w > 900) ? 270 : 0; const aw = this.w - lp;
+    const k = Math.min((aw - pad * 2) / Math.max(x1 - x0, 50), (this.h - pad * 2) / Math.max(y1 - y0, 50), this.o.local ? 2.2 : 3);
+    this.k = k; this.tx = lp + aw / 2 - (x0 + x1) / 2 * k; this.ty = this.h / 2 - (y0 + y1) / 2 * k; this.fitted = true;
+  }
+  step() {
+    const ns = this.nodes.filter(n => this.active(n)); const a = this.alpha; const rep = (this.o.local ? 900 : 650) * this.opt.repel * (this.o.local ? 1 : Math.max(1, ns.length / 110)); const ld = (this.o.local ? 42 : 30) * this.opt.link;
+    const cen = {}; if (!this.o.local) { ns.forEach(n => { const f = NOTES[n.id].folder; const c = cen[f] || (cen[f] = { x: 0, y: 0, k: 0 }); c.x += n.x; c.y += n.y; c.k++; }); }
+    for (let i = 0; i < ns.length; i++) for (let j = i + 1; j < ns.length; j++) {
+      const p = ns[i], q = ns[j]; let dx = p.x - q.x, dy = p.y - q.y, d2 = dx * dx + dy * dy; if (d2 > 160000) continue; if (d2 < 1) { dx = Math.random() - .5; dy = Math.random() - .5; d2 = 1; }
+      const f = rep / d2 * a, d = Math.sqrt(d2); dx = dx / d * f; dy = dy / d * f; p.vx += dx; p.vy += dy; q.vx -= dx; q.vy -= dy;
+    }
+    this.edges.forEach(e => { if (!this.active(e.a) || !this.active(e.b)) return; let dx = e.b.x - e.a.x, dy = e.b.y - e.a.y; const d = Math.sqrt(dx * dx + dy * dy) || 1; const hub = e.a.hub || e.b.hub; const f = (d - ld) * (hub ? .02 : .06) * a / Math.max(1, Math.min(e.a.deg, e.b.deg) / 3); dx = dx / d * f; dy = dy / d * f; e.a.vx += dx; e.a.vy += dy; e.b.vx -= dx; e.b.vy -= dy; });
+    const cg = .012 * this.opt.center * a;
+    ns.forEach(n => { n.vx -= n.x * cg; n.vy -= n.y * cg; const cc = cen[NOTES[n.id].folder]; if (cc && NOTES[n.id].folder) { n.vx += (cc.x / cc.k - n.x) * .03 * a; n.vy += (cc.y / cc.k - n.y) * .03 * a; } if (n.fixed) { n.vx = n.vy = 0; return; } n.x += n.vx; n.y += n.vy; n.vx *= .6; n.vy *= .6; });
+    this.alpha *= .985;
+  }
+  loop() { if (this.dead) return; if (this.alpha > .012 || this.drag) { this.step(); if (this.alpha < .5 && !this.fitted2 && !this.o.local) { } this.draw(); } else if (this.needsDraw) this.draw(); this.raf = requestAnimationFrame(() => this.loop()); }
+  reheat(a = .6) { this.alpha = Math.max(this.alpha, a); }
+  radius(n) { return (2.6 + Math.sqrt(n.deg) * 1.35) * this.opt.size * (this.o.local ? 1.1 : 1); }
+  draw() {
+    this.needsDraw = false; const c = this.ctx, k = this.k, d = this.dpr, cl = this.cols; if (!this.w) return;
+    c.setTransform(d, 0, 0, d, 0, 0); c.clearRect(0, 0, this.w, this.h);
+    const f = this.filter.toLowerCase(); const hov = this.hover, focus = this.o.focusId; const hn = hov ? this.adj[hov] : null;
+    const match = n => !f || n.id.toLowerCase().includes(f);
+    c.setTransform(d * k, 0, 0, d * k, d * this.tx, d * this.ty);
+    c.lineWidth = Math.max(.5, .7 / k * (this.o.local ? 1.4 : 1));
+    this.edges.forEach(e => {
+      if (!this.active(e.a) || !this.active(e.b)) return;
+      const hl = hov && (e.a.id === hov || e.b.id === hov); const dim = (hov && !hl) || (f && !(match(e.a) && match(e.b)));
+      c.strokeStyle = hl ? cl.ac : cl.edge; c.globalAlpha = hl ? .95 : (dim ? .05 : (this.o.local ? .5 : .24));
+      c.beginPath(); c.moveTo(e.a.x, e.a.y); c.lineTo(e.b.x, e.b.y); c.stroke();
+    });
+    c.globalAlpha = 1;
+    const labels = [];
+    this.nodes.forEach(n => {
+      if (!this.active(n)) return;
+      const r = this.radius(n); const dim = (hov && n.id !== hov && !hn.has(n.id)) || (f && !match(n));
+      c.globalAlpha = dim ? .13 : 1; c.fillStyle = n.color; c.beginPath(); c.arc(n.x, n.y, r, 0, 6.2832); c.fill();
+      if (studied.has(n.id)) { c.strokeStyle = cl.ok; c.lineWidth = 1.6 / k; c.beginPath(); c.arc(n.x, n.y, r + 1.8 / k, 0, 6.2832); c.stroke(); }
+      if (n.id === focus) { c.strokeStyle = cl.tx; c.lineWidth = 1.8 / k; c.beginPath(); c.arc(n.x, n.y, r + 3.2 / k, 0, 6.2832); c.stroke(); }
+      if (!dim) labels.push(n);
+    });
+    c.globalAlpha = 1; c.setTransform(d, 0, 0, d, 0, 0);
+    if (this.opt.labels || hov) {
+      c.textAlign = 'center'; c.textBaseline = 'top';
+      labels.forEach(n => {
+        const isH = n.id === hov, isN = hn && hn.has(n.id), isF = n.id === focus, isM = f && match(n);
+        let al = this.o.local ? (this.nodes.length <= 14 || n.deg >= 4 ? .9 : 0) : Math.max(0, Math.min(1, (k - (n.deg >= 30 ? 0.9 : n.deg >= 16 ? 1.5 : 2.2)) / .7));
+        if (!this.opt.labels) al = 0;
+        if (isH || isN || isF || isM) al = 1; else if (hov) al *= .35;
+        if (al < .05) return;
+        const x = n.x * k + this.tx, y = n.y * k + this.ty + this.radius(n) * k + 2;
+        c.font = `${isH || isF ? '600 ' : ''}${this.o.local ? 10.5 : 11.5}px -apple-system,Segoe UI,Roboto,sans-serif`;
+        const t = (NOTES[n.id].isIndex ? 'Index · ' + folderLabel(NOTES[n.id].folder) : n.id.replace(/^\d{3}\s+/, '')); const tt = t.length > 30 && !isH ? t.slice(0, 28) + '…' : t;
+        c.globalAlpha = al; c.lineWidth = 3; c.strokeStyle = cl.bg; c.strokeText(tt, x, y); c.fillStyle = isH ? cl.ac : cl.tx; c.fillText(tt, x, y);
+      });
+      c.globalAlpha = 1;
+    }
+  }
+  toWorld(ev) { const r = this.canvas.getBoundingClientRect(); return { x: (ev.clientX - r.left - this.tx) / this.k, y: (ev.clientY - r.top - this.ty) / this.k, sx: ev.clientX - r.left, sy: ev.clientY - r.top }; }
+  hit(p) { let best = null, bd = 1e9; this.nodes.forEach(n => { if (!this.active(n)) return; const dx = n.x - p.x, dy = n.y - p.y, d = Math.sqrt(dx * dx + dy * dy); const r = this.radius(n) + (COARSE ? 12 : 4) / this.k; if (d < r && d < bd) { bd = d; best = n; } }); return best; }
+  bind() {
+    const cv = this.canvas; this.ptrs = new Map(); this.pinch = null;
+    cv.addEventListener('pointerdown', e => {
+      this.ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY }); try { cv.setPointerCapture(e.pointerId); } catch (err) {}
+      if (this.ptrs.size === 2) { if (this.drag && this.drag.n) this.drag.n.fixed = false; this.drag = null; const [a, b] = [...this.ptrs.values()]; this.pinch = { d: Math.hypot(a.x - b.x, a.y - b.y) || 1, k: this.k }; return; }
+      const p = this.toWorld(e); const n = this.hit(p); this.drag = { n, sx: p.sx, sy: p.sy, moved: false, tx: this.tx, ty: this.ty }; if (n) { n.fixed = true; this.reheat(.3); } });
+    cv.addEventListener('pointermove', e => {
+      if (this.ptrs.has(e.pointerId)) this.ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (this.pinch && this.ptrs.size === 2) {
+        const [a, b] = [...this.ptrs.values()]; const r = this.canvas.getBoundingClientRect(); const cx = (a.x + b.x) / 2 - r.left, cy = (a.y + b.y) / 2 - r.top;
+        const nk = Math.min(8, Math.max(.2, this.pinch.k * (Math.hypot(a.x - b.x, a.y - b.y) || 1) / this.pinch.d)); const wx = (cx - this.tx) / this.k, wy = (cy - this.ty) / this.k;
+        this.tx = cx - wx * nk; this.ty = cy - wy * nk; this.k = nk; this.userMoved = true; this.needsDraw = true; return;
+      }
+      const p = this.toWorld(e);
+      if (this.drag) {
+        const dd = Math.hypot(p.sx - this.drag.sx, p.sy - this.drag.sy); if (dd > 4) this.drag.moved = true;
+        if (this.drag.n) { if (this.drag.moved) { this.drag.n.x = p.x; this.drag.n.y = p.y; this.reheat(.3); } }
+        else if (this.drag.moved) { this.tx = this.drag.tx + (p.sx - this.drag.sx); this.ty = this.drag.ty + (p.sy - this.drag.sy); this.userMoved = true; this.needsDraw = true; }
+        return;
+      }
+      const n = this.hit(p); const id = n ? n.id : null; if (id !== this.hover) { this.hover = id; cv.style.cursor = id ? 'pointer' : 'grab'; this.needsDraw = true; if (this.o.onHover) this.o.onHover(id); }
+    });
+    const up = e => { this.ptrs.delete(e.pointerId); if (this.pinch) { if (this.ptrs.size < 2) this.pinch = null; return; } if (!this.drag) return; const d = this.drag; this.drag = null; if (d.n) { d.n.fixed = false; if (!d.moved) this.o.onOpen && this.o.onOpen(d.n.id); } this.needsDraw = true; };
+    cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up);
+    cv.addEventListener('pointerleave', () => { if (!this.drag && this.hover) { this.hover = null; this.needsDraw = true; this.o.onHover && this.o.onHover(null); } });
+    cv.addEventListener('wheel', e => { e.preventDefault(); const p = this.toWorld(e); const z = Math.exp(-e.deltaY * (e.ctrlKey ? .01 : .0016)); const nk = Math.min(8, Math.max(.2, this.k * z)); this.tx = p.sx - p.x * nk; this.ty = p.sy - p.y * nk; this.k = nk; this.userMoved = true; this.needsDraw = true; }, { passive: false });
+    cv.addEventListener('dblclick', () => { this.fit(); this.needsDraw = true; });
+    cv.style.cursor = 'grab';
+  }
+  destroy() { this.dead = true; cancelAnimationFrame(this.raf); this.ro.disconnect(); GRAPHS.delete(this); this.canvas.remove(); }
+}
+let LOCAL = null, BIG = null;
+function localIds(id, depth = 1) { const s = new Set([id]); let fr = [id]; for (let d = 0; d < depth; d++) { const nx = []; fr.forEach(x => NEIGH[x].forEach(y => { if (!s.has(y)) { s.add(y); nx.push(y); } })); fr = nx; } return [...s]; }
+function drawLocal() {
+  if (!CURID) return; const host = $('#localgraph');
+  if (LOCAL) { LOCAL.destroy(); LOCAL = null; }
+  host.innerHTML = ''; if (getComputedStyle($('#right')).display === 'none' || (NARROW_R.matches && !document.body.classList.contains('showright'))) return;
+  const ids = NEIGH[CURID].size > 40 ? [CURID, ...[...NEIGH[CURID]].sort((a, b) => NEIGH[b].size - NEIGH[a].size).slice(0, 40)] : localIds(CURID, 1);
+  LOCAL = new Graph(host, { ids, local: true, focusId: CURID, onOpen: id => go(id) });
+  LOCAL.fitted = false; setTimeout(() => LOCAL && LOCAL.fit(), 300); setTimeout(() => LOCAL && LOCAL.fit(), 900);
+}
+function showGraphView(on) {
+  VIEW = on ? 'graph' : 'note'; document.body.classList.toggle('showgraph', on); $('#b-graph').classList.toggle('on', on);
+  if (on) {
+    $('#crumb').innerHTML = '<b>Graph view</b> — all notes, linked by [[wikilinks]]'; document.title = 'Graph · Placement Prep Vault'; $('#progress i').style.width = '0';
+    $('#b-studied').style.display = 'none';
+    if (!BIG) buildBigGraph(); else { BIG.o.focusId = CURID; BIG.resize(); BIG.reheat(.1); BIG.refreshTheme(); }
+  } else updateStudiedBtn();
+}
+function buildBigGraph() {
+  const host = $('#graphview');
+  host.innerHTML = `<div class="gui collapsed" id="gui"><button class="ib gtoggle" id="g-toggle" style="border-color:var(--bd);background:var(--bg2)">Filters &amp; legend</button><div class="gpanel"><input type="text" id="gf" placeholder="Filter notes…">
+    <label><input type="checkbox" id="g-labels" checked> Labels</label>
+    <label><input type="checkbox" id="g-hubs" checked> Hide Home note (links to everything)</label>
+    <label>Repel <input type="range" id="g-rep" min=".3" max="3" step=".1" value="1"></label>
+    <label>Link distance <input type="range" id="g-link" min=".4" max="3" step=".1" value="1"></label>
+    <label>Node size <input type="range" id="g-size" min=".6" max="2.2" step=".1" value="1"></label>
+    <label style="justify-content:space-between"><button class="ib" id="g-fit" style="border-color:var(--bd)">Fit</button><button class="ib" id="g-re" style="border-color:var(--bd)">Re-layout</button></label></div>
+    <div class="gpanel legend" id="legend"></div></div><div class="gtitle" id="gtitle">${HINT}</div>`;
+  BIG = new Graph(host, { ids: ORDER, opt: { hideHubs: true }, focusId: CURID, onOpen: id => go(id), onHover: id => { $('#gtitle').textContent = id ? `${NOTES[id].isIndex ? "Index · " + folderLabel(NOTES[id].folder) : id} · ${NOTES[id].in.size} backlinks · ${NOTES[id].out.size} links` : HINT; } });
+  const lg = $('#legend'); lg.innerHTML = [...folders, ''].map(f => `<div data-f="${esc(f)}"><i style="background:${folderColor(f)}"></i>${esc(folderLabel(f))}</div>`).join('');
+  lg.onclick = e => { const d = e.target.closest('div[data-f]'); if (!d) return; const f = d.dataset.f; BIG.hidden.has(f) ? BIG.hidden.delete(f) : BIG.hidden.add(f); d.classList.toggle('off', BIG.hidden.has(f)); BIG.reheat(.4); BIG.needsDraw = true; };
+  $('#g-toggle').onclick = () => $('#gui').classList.toggle('collapsed');
+  $('#gf').oninput = e => { BIG.filter = e.target.value; BIG.needsDraw = true; };
+  $('#g-labels').onchange = e => { BIG.opt.labels = e.target.checked; BIG.needsDraw = true; };
+  $('#g-hubs').onchange = e => { BIG.opt.hideHubs = e.target.checked; BIG.reheat(.8); BIG.needsDraw = true; };
+  $('#g-rep').oninput = e => { BIG.opt.repel = +e.target.value; BIG.reheat(.7); };
+  $('#g-link').oninput = e => { BIG.opt.link = +e.target.value; BIG.reheat(.7); };
+  $('#g-size').oninput = e => { BIG.opt.size = +e.target.value; BIG.needsDraw = true; };
+  $('#g-fit').onclick = () => { BIG.fit(); BIG.needsDraw = true; };
+  $('#g-re').onclick = () => { BIG.nodes.forEach(n => { n.x = (Math.random() - .5) * 400; n.y = (Math.random() - .5) * 400; }); BIG.alpha = 1; };
+  let t = 0; const fitTimer = setInterval(() => { if (!BIG || ++t > 12) return clearInterval(fitTimer); if (BIG.alpha > .05 && VIEW === 'graph' && !BIG.userMoved) { BIG.fit(); } }, 250);
+}
+
+/* ============================================================
+   Wire up
+   ============================================================ */
+buildTree(); buildTags(); updateProgress(); doSearch();
+$$('.tabs button').forEach(b => b.onclick = () => showTab(b.dataset.tab));
+let sT; $('#q').addEventListener('input', () => { clearTimeout(sT); sT = setTimeout(doSearch, 120); });
+$('#results').addEventListener('click', e => { const r = e.target.closest('.res'); if (r) { LASTHL = LASTQ.replace(/^tag:\S+\s*/i, ''); cache.__force = 0; CURID = null; go(r.dataset.id); document.body.classList.remove('showleft'); } });
+document.addEventListener('click', e => {
+  if (!e.target.closest('#aa, #b-aa')) { const sh = $('#aa'); if (!sh.hidden) { sh.hidden = true; $('#b-aa').setAttribute('aria-expanded', 'false'); } }
+  const t = e.target.closest('.tag[data-t]'); if (t) { showTab('search'); $('#q').value = 'tag:' + t.dataset.t; doSearch(); return; }
+  const bl = e.target.closest('.bl[data-id]'); if (bl) { go(bl.dataset.id); return; }
+  const tc = e.target.closest('#toc a'); if (tc) { e.preventDefault(); const i = +tc.dataset.i; (i < 0 ? $('#note h1') : TOC[i]).scrollIntoView({ block: 'start' }); document.body.classList.remove('showright'); return; }
+  const cp = e.target.closest('.copy'); if (cp) { navigator.clipboard && navigator.clipboard.writeText(cp.parentElement.querySelector('code').textContent).then(() => { cp.textContent = 'Copied'; setTimeout(() => cp.textContent = 'Copy', 1200); }); return; }
+  if (e.target.closest('#hlx')) { LASTHL = ''; const id = CURID; CURID = null; openNote(id); return; }
+  const wl = e.target.closest('a.wikilink'); if (wl) { pop.style.display = 'none'; if (location.hash === wl.getAttribute('href')) { e.preventDefault(); openNote(wl.dataset.id, wl.dataset.h); } }
+  if (e.target.id === 'scrim' || e.target.closest('[data-close]')) document.body.classList.remove('showleft', 'showright');
+});
+$('#content').addEventListener('scroll', onScroll, { passive: true });
+$('#aa').addEventListener('click', e => { const b = e.target.closest('.seg button'); if (!b) return; const v = b.dataset.v; setPref(b.parentElement.dataset.k, /^\d+$/.test(v) ? +v : v); });
+$('#b-aa').onclick = () => { const s = $('#aa'); s.hidden = !s.hidden; $('#b-aa').setAttribute('aria-expanded', s.hidden ? 'false' : 'true'); };
+function openSearch() { if (NARROW_L.matches) document.body.classList.add('showleft'); else $('#app').classList.remove('no-left'); showTab('search'); }
+$('#b-search').onclick = openSearch;
+$('#totop').onclick = () => $('#content').scrollTo({ top: 0, behavior: REDUCED ? 'auto' : 'smooth' });
+$('#b-graph').onclick = () => { if (VIEW === 'graph') { go(CURID || '00 Home'); } else location.hash = '#/__graph'; };
+$('#b-expand').onclick = () => { location.hash = '#/__graph'; };
+$('#b-studied').onclick = () => { if (!CURID) return; studied.has(CURID) ? studied.delete(CURID) : studied.add(CURID); saveStudied(); updateProgress(); toast(studied.has(CURID) ? 'Marked as studied ✓' : 'Unmarked'); BIG && (BIG.needsDraw = true); LOCAL && (LOCAL.needsDraw = true); };
+$('#b-prev').onclick = () => { const i = READ.indexOf(CURID); if (i > 0) go(READ[i - 1]); };
+$('#b-next').onclick = () => { const i = READ.indexOf(CURID); if (i < READ.length - 1) go(READ[i + 1]); };
+$('#b-left').onclick = () => { if (NARROW_L.matches) document.body.classList.toggle('showleft'); else $('#app').classList.toggle('no-left'); };
+$('#b-right').onclick = () => { if (NARROW_R.matches) document.body.classList.toggle('showright'); else $('#app').classList.toggle('no-right'); setTimeout(drawLocal, 60); };
+$('#scrim').onclick = () => document.body.classList.remove('showleft', 'showright');
+document.addEventListener('keydown', e => {
+  const typing = /INPUT|TEXTAREA/.test((e.target || {}).tagName);
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); openSearch(); }
+  else if (e.altKey && e.key === 'ArrowLeft') $('#b-prev').click();
+  else if (e.altKey && e.key === 'ArrowRight') $('#b-next').click();
+  else if (!typing && e.key === 'g') $('#b-graph').click();
+  else if (!typing && e.key === '/') { e.preventDefault(); openSearch(); }
+  else if (e.key === 'Escape') { pop.style.display = 'none'; document.body.classList.remove('showleft', 'showright'); $('#aa').hidden = true; if (typing) e.target.blur(); }
+});
+window.addEventListener('hashchange', route);
+if (!location.hash) { const last = store.get('last', '00 Home'); location.hash = '#/' + encodeURIComponent(NOTES[last] ? last : '00 Home'); } else route();
+window.addEventListener('resize', () => { if (!NARROW_L.matches) document.body.classList.remove('showleft'); if (!NARROW_R.matches) document.body.classList.remove('showright'); clearTimeout(window.__rz); window.__rz = setTimeout(() => { if (VIEW === 'note') { fitMath(); drawLocal(); } }, 200); });
+</script>
+</body>
+</html>
