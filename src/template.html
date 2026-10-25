@@ -378,7 +378,7 @@ const CALLOUT_ICON = {
   example: IC('<path d="M9 3h6M10 3v6L5 19a1.5 1.5 0 0 0 1.3 2h11.4A1.5 1.5 0 0 0 19 19l-5-10V3"/>')
 };
 const HINT = COARSE ? 'Pinch to zoom · drag to pan · tap a note to open · green ring = studied' : 'Scroll to zoom · drag to pan · drag a node · click to open · green ring = studied';
-const PALETTE = ['#f87171', '#fb923c', '#fbbf24', '#a3e635', '#4ade80', '#2dd4bf', '#22d3ee', '#60a5fa', '#818cf8', '#a78bfa', '#e879f9', '#f472b6', '#fb7185', '#34d399', '#38bdf8'];
+const PALETTE = ['#f87171', '#fb923c', '#fbbf24', '#a3e635', '#4ade80', '#2dd4bf', '#22d3ee', '#60a5fa', '#818cf8', '#a78bfa', '#e879f9', '#f472b6', '#fb7185', '#34d399', '#38bdf8', '#ca8a04'];
 const folders = [...new Set(RAW.map(n => n.folder).filter(Boolean))].sort();
 const folderLabel = f => f ? f.replace(/^\d+\s+/, '') : 'Vault root';
 const folderColor = f => f ? PALETTE[folders.indexOf(f) % PALETTE.length] : '#9ca3af';

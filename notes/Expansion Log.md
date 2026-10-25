@@ -1,7 +1,7 @@
 ---
 tags: [reference]
 ---
-# Expansion Log (notes 111-227)
+# Expansion Log (notes 111-239)
 
 [[00 Home]]
 
@@ -186,3 +186,29 @@ Added capital budgeting for operations, budgeting/variance/Balanced Scorecard, c
 - [[226 Corporate Finance Essentials - Capital Structure & Cost of Capital|Corporate Finance Essentials - Capital Structure & Cost of Capital]]
 - [[227 GST & Indirect Tax for Supply Chains|GST & Indirect Tax for Supply Chains]]
 
+---
+# Second expansion (notes 228-239), October 2026
+
+Added **12** notes after reviewing the vault for gaps against current MBA placement interviews. Each follows the same format (Definition, Example, In the news, Interview angle per sub-topic; 12 sub-topics each; worked numbers checked in Python). News items were re-checked on 25 October 2026 and carry dates and links; figures marked *illustrative* or *verify* should be re-checked before quoting.
+
+## Machine Learning: AI for managers (+6)
+The existing ML notes were technical (algorithms, forecasting, NLP for analysts, governance). Missing were the manager-level GenAI mental model, agentic AI in operations, AI strategy and ROI (the consulting lens), the AI industry and India AI policy (for GDs and current affairs), practical AI tool use for MBA work, and an AI/ML interview question bank (every other area had one).
+
+- [[228 Generative AI & LLM Foundations for Managers|Generative AI & LLM Foundations for Managers]]
+- [[229 Agentic AI & Intelligent Automation in Operations|Agentic AI & Intelligent Automation in Operations]]
+- [[230 AI Strategy, Use-Case Prioritisation & ROI|AI Strategy, Use-Case Prioritisation & ROI]]
+- [[231 AI Industry Landscape, Economics & India AI Ecosystem|AI Industry Landscape, Economics & India AI Ecosystem]]
+- [[232 AI Productivity Toolkit for MBA Work - Excel, SQL, Decks & Research|AI Productivity Toolkit for MBA Work - Excel, SQL, Decks & Research]]
+- [[233 AI & ML Interview Question Bank for MBA Roles|AI & ML Interview Question Bank for MBA Roles]]
+
+## Placement Essentials (new area, +6)
+The vault covered subjects and interviews but not the placement process around them: online aptitude tests, first-year marketing and economics that general-management and consulting rounds assume, sector primers for the main recruiting industries, the season playbook (funnel, calendar, mocks, day-of execution, offers) and a final-week revision sheet that links back to every area.
+
+- [[234 Aptitude & Online Assessment Prep - Quant, Logical, Verbal & DI|Aptitude & Online Assessment Prep - Quant, Logical, Verbal & DI]]
+- [[235 Marketing Essentials for Operations & Consulting Interviews|Marketing Essentials for Operations & Consulting Interviews]]
+- [[236 Economics Essentials - Micro, Macro & Policy for Interviews|Economics Essentials - Micro, Macro & Policy for Interviews]]
+- [[237 Recruiter Sector Primers - FMCG, Auto, E-commerce, Manufacturing, IT-GCC & Consulting|Recruiter Sector Primers - FMCG, Auto, E-commerce, Manufacturing, IT-GCC & Consulting]]
+- [[238 Placement Season Playbook - Process, Calendar, Day-of Strategy & Mock Drills|Placement Season Playbook - Process, Calendar, Day-of Strategy & Mock Drills]]
+- [[239 Final-Week Rapid-Fire Revision Sheet|Final-Week Rapid-Fire Revision Sheet]]
+
+Navigation changes: [[220 Responsible AI, Explainability & Model Governance]] now links forward to 228; *Go deeper* lists in 094, 099, 100 and 101 link to the new AI notes; [[Study Plan]] and [[Formula Cheat Sheet]] have new rows.

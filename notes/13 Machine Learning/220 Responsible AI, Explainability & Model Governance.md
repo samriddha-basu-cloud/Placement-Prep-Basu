@@ -9,7 +9,7 @@ subtopics: 14
 ---
 # Responsible AI, Explainability & Model Governance
 
-⬅ [[219 NLP, Embeddings & LLM Applications for Analysts]] · [[_Index - Machine Learning|Machine Learning]]
+⬅ [[219 NLP, Embeddings & LLM Applications for Analysts]] · [[_Index - Machine Learning|Machine Learning]] · [[228 Generative AI & LLM Foundations for Managers]] ➡
 
 > **Area:** Machine Learning · **Priority:** 🟡 Tier 3 · **Target roles:** PM / Analytics / Consulting
 

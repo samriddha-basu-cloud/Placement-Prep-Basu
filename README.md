@@ -1,7 +1,8 @@
 # Placement Prep Vault (read-only Obsidian-style site)
 
-A single-file website (`index.html`, no dependencies, no network calls) that presents the 246 markdown notes
-of the vault (227 topic notes: 110 core plus 117 expansion notes, see `notes/Expansion Log.md`) the way Obsidian does, read-only.
+A single-file website (`index.html`, no dependencies, no network calls) that presents the 259 markdown notes
+of the vault (239 topic notes: 110 core, 117 first-expansion and 12 second-expansion notes on AI for managers and
+placement essentials, see `notes/Expansion Log.md`) the way Obsidian does, read-only.
 
 **Features:** folder tree · `[[wikilinks]]` with hover previews · backlinks and outgoing links · tags ·
 callouts, tables, task lists · code highlighting with copy buttons · LaTeX-style formulas · global and local

@@ -19,3 +19,9 @@ area: Machine Learning
 | 218 | [[218 Forecasting with ML & Foundation Models]] | Tier 2 | 13 |
 | 219 | [[219 NLP, Embeddings & LLM Applications for Analysts]] | Tier 3 | 14 |
 | 220 | [[220 Responsible AI, Explainability & Model Governance]] | Tier 3 | 14 |
+| 228 | [[228 Generative AI & LLM Foundations for Managers]] | Tier 1 | 12 |
+| 229 | [[229 Agentic AI & Intelligent Automation in Operations]] | Tier 1 | 12 |
+| 230 | [[230 AI Strategy, Use-Case Prioritisation & ROI]] | Tier 1 | 12 |
+| 231 | [[231 AI Industry Landscape, Economics & India AI Ecosystem]] | Tier 2 | 12 |
+| 232 | [[232 AI Productivity Toolkit for MBA Work - Excel, SQL, Decks & Research]] | Tier 2 | 12 |
+| 233 | [[233 AI & ML Interview Question Bank for MBA Roles]] | Tier 1 | 12 |

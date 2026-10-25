@@ -465,3 +465,5 @@ See news box. Amazon's forecasts exist to drive inventory placement and delivery
 ## 🔗 Go deeper: expansion notes
 - [[218 Forecasting with ML & Foundation Models|Forecasting with ML & Foundation Models]]
 - [[120 Integrated Business Planning (IBP) & S&OP Maturity|Integrated Business Planning (IBP) & S&OP Maturity]]
+- [[229 Agentic AI & Intelligent Automation in Operations|Agentic AI & Intelligent Automation in Operations]]
+- [[230 AI Strategy, Use-Case Prioritisation & ROI|AI Strategy, Use-Case Prioritisation & ROI]]

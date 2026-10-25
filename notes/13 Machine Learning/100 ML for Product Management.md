@@ -359,3 +359,4 @@ See news box. Fraud tools balance fraud caught against false declines (a guardra
 ## 🔗 Go deeper: expansion notes
 - [[214 Causal Inference & Experimentation Beyond A-B Tests|Causal Inference & Experimentation Beyond A-B Tests]]
 - [[219 NLP, Embeddings & LLM Applications for Analysts|NLP, Embeddings & LLM Applications for Analysts]]
+- [[232 AI Productivity Toolkit for MBA Work - Excel, SQL, Decks & Research|AI Productivity Toolkit for MBA Work - Excel, SQL, Decks & Research]]

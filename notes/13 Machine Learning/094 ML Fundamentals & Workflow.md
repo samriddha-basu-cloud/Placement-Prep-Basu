@@ -505,3 +505,4 @@ See news box: RBI's MuleHunter.AI was framed around a concrete problem (fraud vi
 ## 🔗 Go deeper: expansion notes
 - [[218 Forecasting with ML & Foundation Models|Forecasting with ML & Foundation Models]]
 - [[220 Responsible AI, Explainability & Model Governance|Responsible AI, Explainability & Model Governance]]
+- [[233 AI & ML Interview Question Bank for MBA Roles|AI & ML Interview Question Bank for MBA Roles]]

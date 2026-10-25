@@ -439,3 +439,5 @@ See news box. Amazon's June 2025 robotics announcement (natural-language robot i
 ## 🔗 Go deeper: expansion notes
 - [[219 NLP, Embeddings & LLM Applications for Analysts|NLP, Embeddings & LLM Applications for Analysts]]
 - [[218 Forecasting with ML & Foundation Models|Forecasting with ML & Foundation Models]]
+- [[228 Generative AI & LLM Foundations for Managers|Generative AI & LLM Foundations for Managers]]
+- [[231 AI Industry Landscape, Economics & India AI Ecosystem|AI Industry Landscape, Economics & India AI Ecosystem]]

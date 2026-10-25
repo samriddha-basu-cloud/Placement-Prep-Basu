@@ -5,7 +5,7 @@ tags: [index]
 
 MBA Operations & SCM · SIOM Nashik · Target roles: Consultant · Product Manager · Project Manager · Operations Manager
 
-**Expanded edition:** 110 core notes (001-110) plus 117 expansion notes (111-227) covering deeper syllabus, industry cases, interview question banks and India context. 227 topic notes in all.
+**Expanded edition:** 110 core notes (001-110) plus 117 expansion notes (111-227) covering deeper syllabus, industry cases, interview question banks and India context, plus a second expansion (228-239) on **AI for managers** and **placement essentials**. 239 topic notes in all.
 
 Every topic note has, for each sub-topic: **Definition**, **Example**, **In the news (2024–2026)**, **Interview angle**.
 
@@ -247,6 +247,12 @@ Every topic note has, for each sub-topic: **Definition**, **Example**, **In the 
 - [[218 Forecasting with ML & Foundation Models|Forecasting with ML & Foundation Models]] (Tier 2)
 - [[219 NLP, Embeddings & LLM Applications for Analysts|NLP, Embeddings & LLM Applications for Analysts]] (Tier 3)
 - [[220 Responsible AI, Explainability & Model Governance|Responsible AI, Explainability & Model Governance]] (Tier 3)
+- [[228 Generative AI & LLM Foundations for Managers|Generative AI & LLM Foundations for Managers]] (Tier 1)
+- [[229 Agentic AI & Intelligent Automation in Operations|Agentic AI & Intelligent Automation in Operations]] (Tier 1)
+- [[230 AI Strategy, Use-Case Prioritisation & ROI|AI Strategy, Use-Case Prioritisation & ROI]] (Tier 1)
+- [[231 AI Industry Landscape, Economics & India AI Ecosystem|AI Industry Landscape, Economics & India AI Ecosystem]] (Tier 2)
+- [[232 AI Productivity Toolkit for MBA Work - Excel, SQL, Decks & Research|AI Productivity Toolkit for MBA Work - Excel, SQL, Decks & Research]] (Tier 2)
+- [[233 AI & ML Interview Question Bank for MBA Roles|AI & ML Interview Question Bank for MBA Roles]] (Tier 1)
 
 ### Guesstimates  ([[_Index - Guesstimates|index]])
 - [[102 Guesstimate Framework|Guesstimate Framework]] (Tier 1)
@@ -267,6 +273,14 @@ Every topic note has, for each sub-topic: **Definition**, **Example**, **In the 
 - [[225 Budgeting, Variance Analysis & Balanced Scorecard|Budgeting, Variance Analysis & Balanced Scorecard]] (Tier 2)
 - [[226 Corporate Finance Essentials - Capital Structure & Cost of Capital|Corporate Finance Essentials - Capital Structure & Cost of Capital]] (Tier 2)
 - [[227 GST & Indirect Tax for Supply Chains|GST & Indirect Tax for Supply Chains]] (Tier 1)
+
+### Placement Essentials  ([[_Index - Placement Essentials|index]])
+- [[234 Aptitude & Online Assessment Prep - Quant, Logical, Verbal & DI|Aptitude & Online Assessment Prep - Quant, Logical, Verbal & DI]] (Tier 1)
+- [[235 Marketing Essentials for Operations & Consulting Interviews|Marketing Essentials for Operations & Consulting Interviews]] (Tier 2)
+- [[236 Economics Essentials - Micro, Macro & Policy for Interviews|Economics Essentials - Micro, Macro & Policy for Interviews]] (Tier 1)
+- [[237 Recruiter Sector Primers - FMCG, Auto, E-commerce, Manufacturing, IT-GCC & Consulting|Recruiter Sector Primers - FMCG, Auto, E-commerce, Manufacturing, IT-GCC & Consulting]] (Tier 1)
+- [[238 Placement Season Playbook - Process, Calendar, Day-of Strategy & Mock Drills|Placement Season Playbook - Process, Calendar, Day-of Strategy & Mock Drills]] (Tier 1)
+- [[239 Final-Week Rapid-Fire Revision Sheet|Final-Week Rapid-Fire Revision Sheet]] (Tier 1)
 
 ## Reference
 - [[Formula Cheat Sheet]]

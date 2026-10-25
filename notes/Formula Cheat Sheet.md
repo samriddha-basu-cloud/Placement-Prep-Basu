@@ -75,3 +75,28 @@ These extend the table above; each is derived and worked in the linked note area
 | Statistics | Bass diffusion | `F(t) = (1 − e^{−(p+q)t}) / (1 + (q/p)e^{−(p+q)t})` | p=innovation, q=imitation coefficients | New-product adoption forecasts |
 | Finance | WACC | `E/V·Re + D/V·Rd·(1−Tc)` | Re from CAPM: rf+β(Rm−rf) | Discount rate for projects |
 | Finance | Degree of operating leverage | `DOL = Contribution margin / EBIT` |  | Profit sensitivity to volume |
+
+## AI and placement-essentials formulas (notes 228-239)
+
+| Area | Concept | Formula | Variables | When to use |
+|---|---|---|---|---|
+| AI economics | LLM cost per month | `N × (T_in × P_in + T_out × P_out) / 10^6` | N=requests, T=tokens per request, P=price per million tokens | Pricing a GenAI use case ([[228 Generative AI & LLM Foundations for Managers|228]]) |
+| AI economics | Tokens from words (English) | `tokens ≈ words / 0.75` | — | Sizing documents and context |
+| AI agents | End-to-end success | `p^k` | p=per-step success, k=steps | Agent reliability ([[229 Agentic AI & Intelligent Automation in Operations|229]]) |
+| ML metrics | Cost-minimising threshold | `C_FP / (C_FP + C_FN)` | C=cost of false positive / negative | Setting alert thresholds ([[233 AI & ML Interview Question Bank for MBA Roles|233]]) |
+| ML metrics | Lift | `positive rate in segment / overall positive rate` | — | Targeting campaigns |
+| Forecasting | WAPE | `Σ\|A − F\| / ΣA` | A=actual, F=forecast | Volume-weighted forecast error |
+| Experiments | Two-proportion z | `(p2 − p1) / √(p̄(1 − p̄)(2/n))` | n per arm | A/B test significance |
+| Aptitude | Successive % change | `a + b + ab/100` | a, b in % | Price/volume chains ([[234 Aptitude & Online Assessment Prep - Quant, Logical, Verbal & DI|234]]) |
+| Aptitude | Average speed (equal distances) | `2uv / (u + v)` | u, v speeds | TSD questions |
+| Aptitude | Alligation | `cheap : dear = (b − m) : (m − a)` | a, b prices, m mean | Mixtures |
+| Aptitude | Guess EV (4 options) | `p_correct × gain − p_wrong × penalty` | — | Negative-marking strategy |
+| Marketing | Promotion break-even volume | `d / (m − d)` | m=contribution margin %, d=discount % | Should we discount? ([[235 Marketing Essentials for Operations & Consulting Interviews|235]]) |
+| Marketing | LTV (simple) | `monthly contribution / monthly churn` | — | LTV/CAC check |
+| Marketing | Break-even ROAS | `1 / gross margin %` | — | Ad spend decisions |
+| Marketing | NPS | `% promoters − % detractors` | 9-10 promoters, 0-6 detractors | Customer loyalty |
+| Economics | Price elasticity | `%ΔQ / %ΔP` | \|E\|>1 elastic | Pricing ([[236 Economics Essentials - Micro, Macro & Policy for Interviews|236]]) |
+| Economics | GDP deflator growth | `(1 + nominal g)/(1 + real g) − 1` | — | Reading GDP releases |
+| Economics | Real interest rate | `nominal rate − inflation` | — | Monetary stance |
+| Economics | Simple fiscal multiplier | `1 / (1 − MPC)` | MPC=marginal propensity to consume | Fiscal policy questions |
+| Placements | P(at least one offer) | `1 − (1 − p)^n` | p=conversion per final round, n=final rounds | Funnel planning ([[238 Placement Season Playbook - Process, Calendar, Day-of Strategy & Mock Drills|238]]) |
